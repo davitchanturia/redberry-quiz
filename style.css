@@ -1,0 +1,156 @@
+@media (min-width: 1700px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 1520px;
+  }
+}
+body {
+  background-color: #eaeaea;
+}
+
+.myquiz {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+.myquiz .logo-div {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: calc(50% - 100px/2);
+  top: 343px;
+  z-index: 1;
+}
+.myquiz .logo-div img {
+  width: 100px;
+  height: 100px;
+  left: calc(50% - 100px/2);
+  margin: auto;
+  position: absolute;
+  z-index: 999999 !important;
+  object-fit: cover;
+  transition: all 0.5s;
+}
+.myquiz .absolute-element {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #eaeaea;
+  z-index: 999 !important;
+  transition: all 0.5s;
+}
+.myquiz .absolute-element .logo-div {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: calc(50% - 100px/2);
+  top: 343px;
+  z-index: 1;
+}
+.myquiz .absolute-element .logo-div img {
+  width: 100px;
+  height: 100px;
+  left: calc(50% - 100px/2);
+  margin: auto;
+  position: absolute;
+  z-index: 999999 !important;
+  object-fit: cover;
+}
+.myquiz .absolute-element .starter-butt {
+  position: absolute;
+  top: 504px;
+}
+.myquiz .absolute-element .starter-butt .start {
+  color: #232323;
+  position: absolute;
+  width: 498px;
+  left: calc(50% - 498px/2);
+  font-family: TBC Contractica CAPS;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  text-transform: lowercase;
+  font-feature-settings: "case" on;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  transition: all 0.3s;
+}
+.myquiz .myform {
+  background-color: #eaeaea;
+}
+.myquiz .myform .head-div {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #232323;
+  padding: 7px 0px;
+}
+.myquiz .myform .head-div h1 {
+  color: #FE3B1F;
+  font-weight: bold;
+}
+.myquiz .myform .head-div p {
+  font-size: 30px;
+  font-weight: bold;
+  color: #232323;
+}
+.myquiz .myform .slides .first .left .inp-div {
+  margin-top: 42px;
+}
+.myquiz .myform .slides .first .left .inp-div input {
+  width: 80%;
+  background-color: transparent;
+  padding: 7px;
+  outline: none;
+  margin-top: 8px;
+}
+.myquiz .myform .slides .first .left .text {
+  margin-top: 130px;
+  position: absolute;
+  position: relative;
+}
+.myquiz .myform .slides .first .left .text::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 262px;
+  height: 1px;
+  background-color: #000;
+}
+.myquiz .myform .slides .first .right img {
+  max-width: 100%;
+}
+.myquiz .navigation {
+  width: 100%;
+}
+.myquiz .navigation .navig-child {
+  width: 140px;
+  margin: auto;
+}
+.myquiz .navigation .navig-child button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+.myquiz .navigation .navig-child button i {
+  font-size: 22px;
+}
+.myquiz .navigation .navig-child .next {
+  float: right;
+}
+
+.del {
+  opacity: 0;
+  transition: all 0.7s;
+  z-index: -1 !important;
+}
+
+/*# sourceMappingURL=style.css.map */
