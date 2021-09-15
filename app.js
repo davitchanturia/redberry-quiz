@@ -4,13 +4,13 @@ $(function(){
 
     $('.start').click(function(){
         // am kodiT vaqrob start buttons
-        $('.absolute-element').addClass('del');
+
+        $('.starter').removeClass('starter').next().addClass('starter').removeClass('blanke')
+        $('.starter-butt').remove();
+        $('.logo-div').attr("src", "img/rect.png");
         
         // am kodiT vnomravt gverdebs
         $('.pagenum').text(pageNum);
-        pageNum++;
-
-        
         
     })
 

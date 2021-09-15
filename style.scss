@@ -17,7 +17,7 @@ body{
         height: 100px;
         left: calc(50% - 100px/2);
         top: 343px;
-        z-index: 1;
+        z-index: 9999999999999999;
         img{
             width: 100px;
             height: 100px;
@@ -30,8 +30,11 @@ body{
         }
     }
     
+    .blanke{
+        opacity: 0;
+    }
 
-    .absolute-element{
+    .starter-page{
         width: 100%;
         height: 100vh;
         display: flex;
@@ -43,7 +46,7 @@ body{
         top: 0;
         left: 0;
         background-color: #eaeaea;
-        z-index: 999!important;
+        z-index: -1;
         transition: all .5s;
 
         .logo-div{
@@ -97,7 +100,14 @@ body{
     
 
     .myform{
+        width: 100%;
+        height: 100vh;
         background-color: #eaeaea;
+        transition: all 0.5s;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all .5s;
             .head-div{
                 display: flex;
                 justify-content: space-between;
@@ -133,6 +143,7 @@ body{
                         margin-top: 130px;
                         position: absolute;
                         position: relative;
+                        
                         &::before{
                             content: '';
                             position: absolute;
@@ -148,6 +159,7 @@ body{
                     img{
                         // width: 200px;
                         max-width: 100%;
+                        height: 100% ;
                         // margin-top: -50px;
                     }
                 }
@@ -181,9 +193,9 @@ body{
 
 // misanichebeli klasebi
 
-.del{
-    opacity: 0;
-    transition: all .7s;
-    z-index: -1!important;
-
+.starter{
+    position: relative;
+    opacity: 1;
+    z-index: 1!important;
+    transition: all .5s;
 }

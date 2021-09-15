@@ -18,7 +18,7 @@ body {
   height: 100px;
   left: calc(50% - 100px/2);
   top: 343px;
-  z-index: 1;
+  z-index: 10000000000000000;
 }
 .myquiz .logo-div img {
   width: 100px;
@@ -30,7 +30,10 @@ body {
   object-fit: cover;
   transition: all 0.5s;
 }
-.myquiz .absolute-element {
+.myquiz .blanke {
+  opacity: 0;
+}
+.myquiz .starter-page {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -42,10 +45,10 @@ body {
   top: 0;
   left: 0;
   background-color: #eaeaea;
-  z-index: 999 !important;
+  z-index: -1;
   transition: all 0.5s;
 }
-.myquiz .absolute-element .logo-div {
+.myquiz .starter-page .logo-div {
   position: absolute;
   width: 100px;
   height: 100px;
@@ -53,7 +56,7 @@ body {
   top: 343px;
   z-index: 1;
 }
-.myquiz .absolute-element .logo-div img {
+.myquiz .starter-page .logo-div img {
   width: 100px;
   height: 100px;
   left: calc(50% - 100px/2);
@@ -62,11 +65,11 @@ body {
   z-index: 999999 !important;
   object-fit: cover;
 }
-.myquiz .absolute-element .starter-butt {
+.myquiz .starter-page .starter-butt {
   position: absolute;
   top: 504px;
 }
-.myquiz .absolute-element .starter-butt .start {
+.myquiz .starter-page .starter-butt .start {
   color: #232323;
   position: absolute;
   width: 498px;
@@ -84,7 +87,14 @@ body {
   transition: all 0.3s;
 }
 .myquiz .myform {
+  width: 100%;
+  height: 100vh;
   background-color: #eaeaea;
+  transition: all 0.5s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.5s;
 }
 .myquiz .myform .head-div {
   display: flex;
@@ -127,6 +137,7 @@ body {
 }
 .myquiz .myform .slides .first .right img {
   max-width: 100%;
+  height: 100%;
 }
 .myquiz .navigation {
   width: 100%;
@@ -147,10 +158,11 @@ body {
   float: right;
 }
 
-.del {
-  opacity: 0;
-  transition: all 0.7s;
-  z-index: -1 !important;
+.starter {
+  position: relative;
+  opacity: 1;
+  z-index: 1 !important;
+  transition: all 0.5s;
 }
 
 /*# sourceMappingURL=style.css.map */
