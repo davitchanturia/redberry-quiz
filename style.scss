@@ -4,208 +4,402 @@
     }
 }
 body{
-    background-color: #eaeaea;
+    // overflow: hidden;
 }
 .myquiz{
-    position: relative;
     width: 100%;
-    height: 100vh;
-   
-    .logo-div{
-        position: absolute;
-        width: 100px;
-        height: 100px;
-        left: calc(50% - 100px/2);
-        top: 343px;
-        z-index: 9999999999999999;
-        img{
-            width: 100px;
-            height: 100px;
-            left: calc(50% - 100px/2);
-            margin: auto;
-            position: absolute;
-            object-fit: cover;
-            transition: all .005s;
-            
-        }
-    }
-    
-    .blanke{
-        opacity: 0;
-    }
-
-    .starter-page{
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: #eaeaea;
-        z-index: -1;
-        transition: all .5s;
-
-        .logo-div{
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            left: calc(50% - 100px/2);
-            top: 343px;
-            z-index: 1;
-            img{
-                width: 100px;
-                height: 100px;
-                left: calc(50% - 100px/2);
-                margin: auto;
-                position: absolute;
-                z-index: 999999!important;
-                object-fit: cover;
-            }
-        }
-
-
-        .starter-butt{
-            position: absolute;
-            top: 504px;
-            .start{
-                color: #232323;
-                position: absolute;
-                width: 498px;
-                // height: 179px;
-                left: calc(50% - 498px/2);
-                // top: 544px;
-                
-                font-family: TBC Contractica CAPS;
-                font-style: normal;
-                font-weight: bold;
-                font-size: 30px;
-                // line-height: 36px;
-                text-align: center;
-                text-transform: lowercase;
-                font-feature-settings: 'case' on;
-                background-color: transparent;
-                border: none;
-                outline: none;
-                transition: all .3s;
-                
-                
-            }
-        }
-    }
-    
-
     .myform{
+        position: relative;
         width: 100%;
         height: 100vh;
-        background-color: #eaeaea;
-        transition: all 0.5s;
-        position: absolute;
-        top: 0;
-        left: 0;
-        transition: all .5s;
-
-        padding: 50px 0px;
-            .head-div{
-                display: flex;
-                justify-content: space-between;
-                border-bottom: 2px solid #232323;
-                padding: 0px 0px;
-                h1{
-                    color: #FE3B1F;
-                    font-weight: bold;
-                }
-                p{
-                    font-size: 30px;
-                    font-weight: bold;
+        .logo-div{
+             position: absolute;
+             width: 100px;
+             height: 100px;
+             left: calc(50% - 100px/2);
+             top: 343px;
+             z-index: 9999999999999999;
+             img{
+                 width: 100px;
+                 height: 100px;
+                 left: calc(50% - 100px/2);
+                 margin: auto;
+                 position: absolute;
+                 object-fit: cover;
+                 transition: all .005s;
+                 
+             }
+         }
+         .same{
+             width: 100%;
+             position: absolute;
+             top: 0;
+             left: 0;
+             opacity: 0;
+            //  z-index: -1;
+         }
+        .starter-page{
+            width: 100%;
+            height: 100vh;
+            background-color: #eaeaea;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .starter-butt{
+                position: absolute;
+                top: 504px;
+                .start{
                     color: #232323;
-                }
-            }
-        
-        .slides{
-            
-            .first{
-                .left{
-                    .inp-div{
-                        margin-top: 42px;
-                        
-                        input{
-                            width: 80%;
-                            background-color: transparent;
-                            padding: 7px;
-                            outline: none;
-                            margin-top: 8px;
-                        }
-                    }
-                    .text{
-                        margin-top: 130px;
-                        position: absolute;
-                        position: relative;
-                        
-                        &::before{
-                            content: '';
-                            position: absolute;
-                            top: -20px;
-                            left: 0;
-                            width: 262px;
-                            height: 1px;
-                            background-color: #000;
-                        }
-                    }
-                }
-                .right{
-                    img{
-                        position: relative;
-                        max-width: 100%;
-                        height: 100% ;
-                        margin-top: -50px;
-                    }
-                }
-            }
-            .second{
-                .left{
-
-                }
-                .right{
+                    position: absolute;
+                    width: 498px;
+                    // height: 179px;
+                    left: calc(50% - 498px/2);
+                    // top: 544px;
+                    
+                    font-family: TBC Contractica CAPS;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 30px;
+                    // line-height: 36px;
+                    text-align: center;
+                    text-transform: lowercase;
+                    font-feature-settings: 'case' on;
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    transition: all .3s;
+                    
                     
                 }
             }
         }
-        .navigation{
-            width: 100%;
-            .navig-child{
-                width: 140px;
-                margin: auto;
-                // display: flex;
-                // justify-content: space-between;
-                button{
-                    border: none;
-                    outline: none;
-                    background-color: transparent;
-                    i{
-                        font-size: 22px;
-                    }
-                }
-                .next{
-                    float: right;
-                }
-            }
-        }
+
+        .first{
+             .left{
+                 .inp-div{
+                     margin-top: 42px;
+                     
+                     input{
+                         width: 80%;
+                         background-color: transparent;
+                         padding: 7px;
+                         outline: none;
+                         margin-top: 8px;
+                     }
+                 }
+                 .text{
+                     margin-top: 130px;
+                     position: absolute;
+                     position: relative;
+                     
+                     &::before{
+                         content: '';
+                         position: absolute;
+                         top: -20px;
+                         left: 0;
+                         width: 262px;
+                         height: 1px;
+                         background-color: #000;
+                     }
+                 }
+             }
+             .right{
+                 img{
+                     position: relative;
+                     max-width: 100%;
+                     height: 100% ;
+                     margin-top: -50px;
+                 }
+             }
+         }
     }
-    
 }
+.head-div{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #232323;
+    padding: 0px 0px;
+    h1{
+        color: #FE3B1F;
+        font-weight: bold;
+    }
+    p{
+        font-size: 30px;
+        font-weight: bold;
+        color: #232323;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// body{
+//     background-color: #eaeaea;
+// }
+// .myquiz{
+//     position: relative;
+//     width: 100%;
+//     height: 100vh;
+   
+//     .logo-div{
+//         position: absolute;
+//         width: 100px;
+//         height: 100px;
+//         left: calc(50% - 100px/2);
+//         top: 343px;
+//         z-index: 9999999999999999;
+//         img{
+//             width: 100px;
+//             height: 100px;
+//             left: calc(50% - 100px/2);
+//             margin: auto;
+//             position: absolute;
+//             object-fit: cover;
+//             transition: all .005s;
+            
+//         }
+//     }
+    
+//     .blanke{
+//         opacity: 0;
+//     }
+
+//     .starter-page{
+//         width: 100%;
+//         height: 100vh;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         display: flex;
+//         flex-direction: column;
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         background-color: #eaeaea;
+//         z-index: -1;
+//         transition: all .5s;
+
+//         .logo-div{
+//             position: absolute;
+//             width: 100px;
+//             height: 100px;
+//             left: calc(50% - 100px/2);
+//             top: 343px;
+//             z-index: 1;
+//             img{
+//                 width: 100px;
+//                 height: 100px;
+//                 left: calc(50% - 100px/2);
+//                 margin: auto;
+//                 position: absolute;
+//                 z-index: 999999!important;
+//                 object-fit: cover;
+//             }
+//         }
+
+
+//         .starter-butt{
+//             position: absolute;
+//             top: 504px;
+//             .start{
+//                 color: #232323;
+//                 position: absolute;
+//                 width: 498px;
+//                 // height: 179px;
+//                 left: calc(50% - 498px/2);
+//                 // top: 544px;
+                
+//                 font-family: TBC Contractica CAPS;
+//                 font-style: normal;
+//                 font-weight: bold;
+//                 font-size: 30px;
+//                 // line-height: 36px;
+//                 text-align: center;
+//                 text-transform: lowercase;
+//                 font-feature-settings: 'case' on;
+//                 background-color: transparent;
+//                 border: none;
+//                 outline: none;
+//                 transition: all .3s;
+                
+                
+//             }
+//         }
+//     }
+    
+
+//     .myform{
+//         width: 100%;
+//         height: 100vh;
+//         background-color: #eaeaea;
+//         transition: all 0.5s;
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         transition: all .5s;
+
+//         padding: 50px 0px;
+//             .head-div{
+//                 display: flex;
+//                 justify-content: space-between;
+//                 border-bottom: 2px solid #232323;
+//                 padding: 0px 0px;
+//                 h1{
+//                     color: #FE3B1F;
+//                     font-weight: bold;
+//                 }
+//                 p{
+//                     font-size: 30px;
+//                     font-weight: bold;
+//                     color: #232323;
+//                 }
+//             }
+        
+//         .slides{
+            
+//             .first{
+//                 .left{
+//                     .inp-div{
+//                         margin-top: 42px;
+                        
+//                         input{
+//                             width: 80%;
+//                             background-color: transparent;
+//                             padding: 7px;
+//                             outline: none;
+//                             margin-top: 8px;
+//                         }
+//                     }
+//                     .text{
+//                         margin-top: 130px;
+//                         position: absolute;
+//                         position: relative;
+                        
+//                         &::before{
+//                             content: '';
+//                             position: absolute;
+//                             top: -20px;
+//                             left: 0;
+//                             width: 262px;
+//                             height: 1px;
+//                             background-color: #000;
+//                         }
+//                     }
+//                 }
+//                 .right{
+//                     img{
+//                         position: relative;
+//                         max-width: 100%;
+//                         height: 100% ;
+//                         margin-top: -50px;
+//                     }
+//                 }
+//             }
+//             .second{
+//                 .left{
+
+//                 }
+//                 .right{
+                    
+//                 }
+//             }
+//         }
+//         .navigation{
+//             width: 100%;
+//             .navig-child{
+//                 width: 140px;
+//                 margin: auto;
+//                 // display: flex;
+//                 // justify-content: space-between;
+//                 button{
+//                     border: none;
+//                     outline: none;
+//                     background-color: transparent;
+//                     i{
+//                         font-size: 22px;
+//                     }
+//                 }
+//                 .next{
+//                     float: right;
+//                 }
+//             }
+//         }
+//     }
+    
+// }
 
 
 
 
 // misanichebeli klasebi
 
-.starter{
-    position: relative;
-    opacity: 1;
-    z-index: 1!important;
+.active-page{
+    opacity: 1!important;
     transition: all .5s;
+    position: relative;
+    z-index: 99999;
 }

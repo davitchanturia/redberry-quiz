@@ -3,16 +3,15 @@
     max-width: 1520px;
   }
 }
-body {
-  background-color: #eaeaea;
-}
-
 .myquiz {
+  width: 100%;
+}
+.myquiz .myform {
   position: relative;
   width: 100%;
   height: 100vh;
 }
-.myquiz .logo-div {
+.myquiz .myform .logo-div {
   position: absolute;
   width: 100px;
   height: 100px;
@@ -20,7 +19,7 @@ body {
   top: 343px;
   z-index: 10000000000000000;
 }
-.myquiz .logo-div img {
+.myquiz .myform .logo-div img {
   width: 100px;
   height: 100px;
   left: calc(50% - 100px/2);
@@ -29,46 +28,26 @@ body {
   object-fit: cover;
   transition: all 0.005s;
 }
-.myquiz .blanke {
-  opacity: 0;
-}
-.myquiz .starter-page {
+.myquiz .myform .same {
   width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
   position: absolute;
   top: 0;
   left: 0;
+  opacity: 0;
+}
+.myquiz .myform .starter-page {
+  width: 100%;
+  height: 100vh;
   background-color: #eaeaea;
-  z-index: -1;
-  transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.myquiz .starter-page .logo-div {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  left: calc(50% - 100px/2);
-  top: 343px;
-  z-index: 1;
-}
-.myquiz .starter-page .logo-div img {
-  width: 100px;
-  height: 100px;
-  left: calc(50% - 100px/2);
-  margin: auto;
-  position: absolute;
-  z-index: 999999 !important;
-  object-fit: cover;
-}
-.myquiz .starter-page .starter-butt {
+.myquiz .myform .starter-page .starter-butt {
   position: absolute;
   top: 504px;
 }
-.myquiz .starter-page .starter-butt .start {
+.myquiz .myform .starter-page .starter-butt .start {
   color: #232323;
   position: absolute;
   width: 498px;
@@ -85,48 +64,22 @@ body {
   outline: none;
   transition: all 0.3s;
 }
-.myquiz .myform {
-  width: 100%;
-  height: 100vh;
-  background-color: #eaeaea;
-  transition: all 0.5s;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: all 0.5s;
-  padding: 50px 0px;
-}
-.myquiz .myform .head-div {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 2px solid #232323;
-  padding: 0px 0px;
-}
-.myquiz .myform .head-div h1 {
-  color: #FE3B1F;
-  font-weight: bold;
-}
-.myquiz .myform .head-div p {
-  font-size: 30px;
-  font-weight: bold;
-  color: #232323;
-}
-.myquiz .myform .slides .first .left .inp-div {
+.myquiz .myform .first .left .inp-div {
   margin-top: 42px;
 }
-.myquiz .myform .slides .first .left .inp-div input {
+.myquiz .myform .first .left .inp-div input {
   width: 80%;
   background-color: transparent;
   padding: 7px;
   outline: none;
   margin-top: 8px;
 }
-.myquiz .myform .slides .first .left .text {
+.myquiz .myform .first .left .text {
   margin-top: 130px;
   position: absolute;
   position: relative;
 }
-.myquiz .myform .slides .first .left .text::before {
+.myquiz .myform .first .left .text::before {
   content: "";
   position: absolute;
   top: -20px;
@@ -135,36 +88,34 @@ body {
   height: 1px;
   background-color: #000;
 }
-.myquiz .myform .slides .first .right img {
+.myquiz .myform .first .right img {
   position: relative;
   max-width: 100%;
   height: 100%;
   margin-top: -50px;
 }
-.myquiz .myform .navigation {
-  width: 100%;
+
+.head-div {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #232323;
+  padding: 0px 0px;
 }
-.myquiz .myform .navigation .navig-child {
-  width: 140px;
-  margin: auto;
+.head-div h1 {
+  color: #FE3B1F;
+  font-weight: bold;
 }
-.myquiz .myform .navigation .navig-child button {
-  border: none;
-  outline: none;
-  background-color: transparent;
-}
-.myquiz .myform .navigation .navig-child button i {
-  font-size: 22px;
-}
-.myquiz .myform .navigation .navig-child .next {
-  float: right;
+.head-div p {
+  font-size: 30px;
+  font-weight: bold;
+  color: #232323;
 }
 
-.starter {
-  position: relative;
-  opacity: 1;
-  z-index: 1 !important;
+.active-page {
+  opacity: 1 !important;
   transition: all 0.5s;
+  position: relative;
+  z-index: 99999;
 }
 
 /*# sourceMappingURL=style.css.map */
