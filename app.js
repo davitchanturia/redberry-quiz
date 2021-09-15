@@ -1,4 +1,5 @@
 $(function(){
+    
 
     let pageNum = $('.pagenum').attr('id')
 
@@ -7,7 +8,15 @@ $(function(){
 
         $('.starter').removeClass('starter').next().addClass('starter').removeClass('blanke')
         $('.starter-butt').remove();
-        $('.logo-div').attr("src", "img/rect.png");
+        $('.logo').attr("src", "img/rect.png");
+        $('.logo').animate({
+            'width' : '622px' , 
+            'height' : '75px' ,
+            'border-radius' : '0px!important' ,
+            'bottom' : '100px' ,
+            'left' : '50px' ,
+            'opacity' : '0.6!important' , 
+        })
         
         // am kodiT vnomravt gverdebs
         $('.pagenum').text(pageNum);

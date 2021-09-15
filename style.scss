@@ -24,9 +24,9 @@ body{
             left: calc(50% - 100px/2);
             margin: auto;
             position: absolute;
-            z-index: 999999!important;
             object-fit: cover;
-            transition: all .5s;    
+            transition: all .005s;
+            
         }
     }
     
@@ -64,7 +64,6 @@ body{
                 position: absolute;
                 z-index: 999999!important;
                 object-fit: cover;
-                    
             }
         }
 
@@ -108,11 +107,13 @@ body{
         top: 0;
         left: 0;
         transition: all .5s;
+
+        padding: 50px 0px;
             .head-div{
                 display: flex;
                 justify-content: space-between;
                 border-bottom: 2px solid #232323;
-                padding: 7px 0px;
+                padding: 0px 0px;
                 h1{
                     color: #FE3B1F;
                     font-weight: bold;
@@ -157,35 +158,44 @@ body{
                 }
                 .right{
                     img{
-                        // width: 200px;
+                        position: relative;
                         max-width: 100%;
                         height: 100% ;
-                        // margin-top: -50px;
+                        margin-top: -50px;
                     }
                 }
             }
-        }
-    }
-    .navigation{
-        width: 100%;
-        .navig-child{
-            width: 140px;
-            margin: auto;
-            // display: flex;
-            // justify-content: space-between;
-            button{
-                border: none;
-                outline: none;
-                background-color: transparent;
-                i{
-                    font-size: 22px;
+            .second{
+                .left{
+
+                }
+                .right{
+                    
                 }
             }
-            .next{
-                float: right;
+        }
+        .navigation{
+            width: 100%;
+            .navig-child{
+                width: 140px;
+                margin: auto;
+                // display: flex;
+                // justify-content: space-between;
+                button{
+                    border: none;
+                    outline: none;
+                    background-color: transparent;
+                    i{
+                        font-size: 22px;
+                    }
+                }
+                .next{
+                    float: right;
+                }
             }
         }
     }
+    
 }
 
 
