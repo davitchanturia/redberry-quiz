@@ -1,10 +1,13 @@
+@use 'question-div.scss' ; 
+
 @media (min-width: 1700px){
     .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
         max-width: 1520px;
     }
 }
 body{
-    // overflow: hidden;
+    overflow-y: hidden;
+    // height: 1080px;
 }
 .myquiz{
     width: 100%;
@@ -30,14 +33,14 @@ body{
                  
              }
          }
-         .same{
-             width: 100%;
-             position: absolute;
-             top: 0;
-             left: 0;
-             opacity: 0;
-            //  z-index: -1;
-         }
+        //  .same{
+        //      width: 100%;
+        //      position: absolute;
+        //      top: 0;
+        //      left: 0;
+        //      opacity: 0;
+        //     //  z-index: -1;
+        //  }
         .starter-page{
             width: 100%;
             height: 100vh;
@@ -74,8 +77,16 @@ body{
             }
         }
 
-        .first{
+        .same{
+            width: 100%;
+            // height: 500px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            padding-top: 50px;
              .left{
+                //  პირველი ფეიჯის კლასები
                  .inp-div{
                      margin-top: 42px;
                      
@@ -102,13 +113,50 @@ body{
                          background-color: #000;
                      }
                  }
+                //  საერთო კლასი ყველა დივისთვის
+                .question-div{
+                    @include question-div.questions();
+                }
+                // მეოთხე ფეიჯის კლასები
+                .left-reco{
+                    overflow-y: scroll;
+                    .recomendations{
+                    
+                        .text-reco{
+                            margin-top: 30px;
+                        }
+                    }
+
+                }
+                
              }
              .right{
+                //  background-color: blueviolet;
                  img{
                      position: relative;
                      max-width: 100%;
-                     height: 100% ;
-                     margin-top: -50px;
+                     height: 702px ;
+                     margin-top: -30px;
+                 }
+             }
+             .navigation{
+                 width: 100%;
+                 .navig-child{
+                     width: 140px;
+                     margin: auto;
+                     // display: flex;
+                     // justify-content: space-between;
+                     button{
+                         border: none;
+                         outline: none;
+                         background-color: transparent;
+                         i{
+                             font-size: 22px;
+                         }
+                     }
+                     .next{
+                         float: right;
+                     }
                  }
              }
          }
@@ -128,6 +176,18 @@ body{
         font-weight: bold;
         color: #232323;
     }
+}
+
+
+
+
+// misanichebeli klasebi
+
+.active-page{
+    opacity: 1!important;
+    transition: all .5s;
+    position: relative;
+    z-index: 99999;
 }
 
 
@@ -397,9 +457,4 @@ body{
 
 // misanichebeli klasebi
 
-.active-page{
-    opacity: 1!important;
-    transition: all .5s;
-    position: relative;
-    z-index: 99999;
-}
+
