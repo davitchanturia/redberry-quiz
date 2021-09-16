@@ -8,7 +8,7 @@ body {
 }
 
 .myquiz {
-  width: 100%;
+  width: 1920px;
 }
 .myquiz .myform {
   position: relative;
@@ -63,11 +63,13 @@ body {
 }
 .myquiz .myform .same {
   width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
   opacity: 0;
   padding-top: 50px;
+  transition: all 0.7s;
 }
 .myquiz .myform .same .left .inp-div {
   margin-top: 42px;
@@ -101,9 +103,9 @@ body {
   margin-block-end: 0 !important;
   font-size: 18px;
   font-weight: bold;
+  padding-bottom: 20px;
 }
 .myquiz .myform .same .left .question-div .question-child {
-  margin-top: 10px;
   margin-left: 20px;
   display: flex;
   align-items: center;
@@ -115,24 +117,43 @@ body {
 .myquiz .myform .same .left .question-div .question-child label {
   margin-left: 12px;
 }
-.myquiz .myform .same .left .question-div .question-child textarea {
-  display: block;
-  margin-top: 15px;
+.myquiz .myform .same .left .question-div .question-child .textarea-div {
+  padding-top: 30px !important;
 }
 .myquiz .myform .same .left .left-reco {
+  height: 678px;
   overflow-y: scroll;
 }
 .myquiz .myform .same .left .left-reco .recomendations .text-reco {
   margin-top: 30px;
 }
+.myquiz .myform .same .left .left-reco .end-button {
+  width: 100%;
+  padding-top: 40px;
+}
+.myquiz .myform .same .left .left-reco .end-button button {
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  padding: 10px 24px;
+  background-color: #208298;
+  border-radius: 15px;
+  color: #fff;
+  border: none;
+  outline: none;
+}
 .myquiz .myform .same .right img {
   position: relative;
   max-width: 100%;
-  height: 702px;
+  height: 100%;
   margin-top: -30px;
+  object-fit: cover;
 }
 .myquiz .myform .same .navigation {
   width: 100%;
+  position: absolute;
+  left: 0 !important;
+  bottom: 120px !important;
 }
 .myquiz .myform .same .navigation .navig-child {
   width: 140px;
@@ -168,7 +189,7 @@ body {
 
 .active-page {
   opacity: 1 !important;
-  transition: all 0.5s;
+  transition: all 0.7s;
   position: relative;
   z-index: 99999;
 }

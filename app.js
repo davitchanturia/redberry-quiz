@@ -41,9 +41,9 @@ $(function(){
 
         // წინ გადასასვლელი ღილაკის გაქრობა ბოლო გვერდზე
         if(x == 4 ){
-            $('.next').css({
-                'display' : 'none'
-            });
+            // $('.next').css({
+            //     'display' : 'none'
+            // });
         }else{
             $('.back').css({
                 'display' : 'inline-block'
