@@ -77,9 +77,16 @@ body {
 .myquiz .myform .same .left .inp-div input {
   width: 80%;
   background-color: transparent;
-  padding: 7px;
+  padding: 7px 15px;
   outline: none;
+  border-top: solid 1px #878787;
+  border-right: solid 1px #878787;
+  border-bottom: solid 1px #555555;
+  border-left: solid 1px #555555;
   margin-top: 8px;
+}
+.myquiz .myform .same .left .inp-div input::placeholder {
+  color: black !important;
 }
 .myquiz .myform .same .left .text {
   margin-top: 130px;
@@ -106,6 +113,7 @@ body {
   padding-bottom: 20px;
 }
 .myquiz .myform .same .left .question-div .question-child {
+  margin-top: 10px;
   margin-left: 20px;
   display: flex;
   align-items: center;
@@ -127,6 +135,9 @@ body {
 .myquiz .myform .same .left .left-reco .recomendations .text-reco {
   margin-top: 30px;
 }
+.myquiz .myform .same .left .left-reco .recomendations .text-reco p {
+  font-weight: 600;
+}
 .myquiz .myform .same .left .left-reco .end-button {
   width: 100%;
   padding-top: 40px;
@@ -145,7 +156,7 @@ body {
 .myquiz .myform .same .right img {
   position: relative;
   max-width: 100%;
-  height: 100%;
+  height: 100% !important;
   margin-top: -30px;
   object-fit: cover;
 }

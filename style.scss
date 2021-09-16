@@ -95,9 +95,16 @@ body{
                      input{
                          width: 80%;
                          background-color: transparent;
-                         padding: 7px;
+                         padding: 7px 15px;
                          outline: none;
+                         border-top: solid 1px #878787;
+                         border-right: solid 1px #878787;
+                         border-bottom: solid 1px #555555;
+                         border-left: solid 1px #555555;
                          margin-top: 8px;
+                         &::placeholder{
+                             color: black!important;
+                         }
                      }
                  }
                  .text{
@@ -127,6 +134,9 @@ body{
                     
                         .text-reco{
                             margin-top: 30px;
+                            p{
+                                font-weight: 600;
+                            }
                         }
                     }
                     .end-button{
@@ -155,7 +165,7 @@ body{
                  img{
                      position: relative;
                      max-width: 100%;
-                     height: 100% ;
+                     height: 100%!important ;
                      margin-top: -30px;
                      object-fit: cover;
                  }
@@ -201,6 +211,8 @@ body{
         color: #232323;
     }
 }
+
+
 
 
 
