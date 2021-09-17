@@ -11,31 +11,30 @@ $(function(){
 
     // გვერდებზე გადასვლა + ვალიდაცია
     $(document).on('click' , '.next' , function(e){
-        // e.preventDefault()
-        // $('.active-page').removeClass('active-page').next().addClass('active-page');
-        // x++;
+        e.preventDefault()
+        
         if(x < 4){
             $('.active-page').removeClass('active-page').next().addClass('active-page');
             x++;
 
+            
+
             if( x == 1 ){
 
+                // ამ ფუნქციით იუზერი ვერ გადავა შემდეგზე თუ მეილი სწორად არ შეიყვანა (@redberry.com - ით უნდა მთავრდებოდეს)
                 input3.keyup(function(e){
-                    let value = e.currentTarget.value;
-                    let endValue = input3.val().split('@');
+                    // let value = e.target.value;
 
-                    for(i=0 ; i < endValue.length ; i++){
-                        // console.log(endValue[i]);
-                        if( endValue[1] === "redberry.com" ){
-                            $('.next').prop('disabled', true);
-                        }else{
+                    let endValue = input3.val();
+                    let valstring = endValue.split('@');
+
+                        if( valstring[1] == "redberry.com" ){
                             $('.next').prop('disabled', false);
+                        }else{
+                            $('.next').prop('disabled', true);
+                            $('.email-error').text('იმეილი არასწორია')
                         }
 
-                    }
-
-                    // console.log(endValue.length[1])
-                    
                 })
             
             
