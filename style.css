@@ -9,6 +9,7 @@ body {
 
 .myquiz {
   width: 1920px;
+  max-width: 100%;
 }
 .myquiz .myform {
   position: relative;
@@ -74,6 +75,12 @@ body {
 .myquiz .myform .same .left .inp-div {
   margin-top: 42px;
 }
+.myquiz .myform .same .left .inp-div .email-error {
+  height: 10px;
+  margin-top: 10px;
+  color: #FE3B1F;
+  transition: all 0.8s;
+}
 .myquiz .myform .same .left .inp-div input {
   width: 80%;
   background-color: transparent;
@@ -122,6 +129,15 @@ body {
   width: 17px;
   height: 17px;
 }
+.myquiz .myform .same .left .question-div .question-child .num-input {
+  width: 90%;
+  height: inherit;
+  padding: 7px 15px;
+  border-top: solid 1px #878787;
+  border-right: solid 1px #878787;
+  border-bottom: solid 1px #555555;
+  border-left: solid 1px #555555;
+}
 .myquiz .myform .same .left .question-div .question-child label {
   margin-left: 12px;
 }
@@ -130,7 +146,7 @@ body {
 }
 .myquiz .myform .same .left .left-reco {
   height: 678px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .myquiz .myform .same .left .left-reco .recomendations .text-reco {
   margin-top: 30px;
@@ -196,6 +212,10 @@ body {
   font-size: 30px;
   font-weight: bold;
   color: #232323;
+}
+
+.form1 {
+  display: flex;
 }
 
 .active-page {

@@ -92,7 +92,12 @@ body{
                 //  პირველი ფეიჯის კლასები
                  .inp-div{
                      margin-top: 42px;
-                     
+                     .email-error{
+                         height: 10px;
+                         margin-top: 10px;
+                         color: #FE3B1F;
+                         transition: all .8s;
+                     }
                      input{
                          width: 80%;
                          background-color: transparent;
@@ -130,7 +135,7 @@ body{
                 // მეოთხე ფეიჯის კლასები
                 .left-reco{
                     height: 678px;
-                    overflow-y: scroll;
+                    overflow-y: auto;
                     .recomendations{
                     
                         .text-reco{

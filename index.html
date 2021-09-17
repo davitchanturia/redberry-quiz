@@ -52,19 +52,19 @@
                 
                   <div class="input-1 inp-div">
                       <label for="first-input">სახელი*</label> <br>
-                      <input minlength="3" maxlength="255" required placeholder="ბიძინა" type="text" id="first-input">
+                      <input minlength="3" maxlength="255" required placeholder="ბიძინა" type="text" id="first-input" class="inputs">
                       <span class="name-error" style="display: block;"></span>
                   </div>
 
                   <div class="input-2 inp-div">
                     <label for="second-input">გვარი*</label> <br>
-                    <input required placeholder="თაბაგარი" type="text" id="second-input">
+                    <input required placeholder="თაბაგარი" type="text" id="second-input" class="inputs">
                   </div>
 
                   <div class="input-3 inp-div">
                       <label for="third-input">მეილი*</label> <br>
-                      <input required placeholder="zaxarichi@redberyy.com" type="email" id="third-input">
-                      <p class="email-error" ></p>
+                      <input required placeholder="zaxarichi@redberyy.com" type="email" id="third-input" class="inputs">
+                      <div class="email-error" ></div>
                   </div>
 
                   
@@ -113,28 +113,31 @@
                 </div>
 
               </div>
-                <div class="col-md-5 left">
+                <div class="col-md-5 left left-content">
 
                     <div class="question-div">
 
                       <h2>გაქვს გადატანილი Covid-19?*</h2>
 
                       <div class="question-child">
-                        <input type="radio" id="yes" name="a">
+                        <input type="radio" id="yes" name="a" value="yes" class="haveCovid">
                         <label for="yes">კი</label>
+                        
                       </div>
                       
                       <div class="question-child">
-                        <input type="radio" id="no" name="a">
+                        <input type="radio" id="no" name="a" value="no" class="haveCovid">
                         <label for="no">არა</label>
                       </div>
                       
                       <div class="question-child">
-                        <input type="radio" id="now" name="a">
+                        <input type="radio" id="now" name="a" value="now" class="haveCovid">
                         <label for="now">ახლა მაქვს</label>
                       </div>
                       
                     </div>
+
+
 
                     
 
@@ -239,22 +242,22 @@
                       <h2>რა სიხშირით შეიძლება გვქონდეს საერთო არაფორმალური ონლაინ შეხვედრები, სადაც ყველა სურვილისამებრ ჩაერთვება?*</h2>
   
                         <div class="question-child">
-                          <input type="radio" id="yes" name="c">
+                          <input type="radio" id="yes" name="g">
                           <label for="yes">კვირაში ორჯერ</label>
                         </div>
                         
                         <div class="question-child">
-                          <input type="radio" id="no" name="c">
+                          <input type="radio" id="no" name="g">
                           <label for="no">კვირაში ერთხელ</label>
                         </div>
                         
                         <div class="question-child">
-                          <input type="radio" id="now" name="c">
+                          <input type="radio" id="now" name="g">
                           <label for="now">ორ კვირაში ერთხელ</label>
                         </div>
   
                         <div class="question-child">
-                          <input type="radio" id="mon" name="c">
+                          <input type="radio" id="mon" name="g">
                           <label for="mon">თვეში ერთხელ</label>
                         </div>
   
@@ -265,32 +268,32 @@
                       <h2>კვირაში რამდენი დღე ისურვებდი ოფისიდან მუშაობას?*</h2>
   
                         <div class="question-child">
-                          <input type="radio" id="yes" name="d">
+                          <input type="radio" id="yes" name="h">
                           <label for="yes">0</label>
                         </div>
                         
                         <div class="question-child">
-                          <input type="radio" id="no" name="d">
+                          <input type="radio" id="no" name="h">
                           <label for="no">1</label>
                         </div>
                         
                         <div class="question-child">
-                          <input type="radio" id="now" name="d">
+                          <input type="radio" id="now" name="h">
                           <label for="now">2</label>
                         </div>
   
                         <div class="question-child">
-                          <input type="radio" id="mon" name="d">
+                          <input type="radio" id="mon" name="h">
                           <label for="mon">3</label>
                         </div>
                         
                         <div class="question-child">
-                          <input type="radio" id="mon" name="d">
+                          <input type="radio" id="mon" name="h">
                           <label for="mon">4</label>
                         </div>
 
                         <div class="question-child">
-                          <input type="radio" id="mon" name="d">
+                          <input type="radio" id="mon" name="h">
                           <label for="mon">5</label>
                         </div>
   
@@ -336,7 +339,7 @@
                     <button type="button" class="back" >
                       <i class="bi bi-chevron-left"></i>
                     </button>
-                    <button type="button" class="next" >
+                    <button type="button" class="next" style="display: none;">
                       <i class="bi bi-chevron-right"></i>
                     </button>
                   </div>
