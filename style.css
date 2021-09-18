@@ -10,7 +10,6 @@ body {
 .myquiz {
   width: 1920px;
   max-width: 100%;
-  height: 1080px;
 }
 .myquiz .myform {
   position: relative;
@@ -237,10 +236,6 @@ body {
   font-size: 30px;
   font-weight: bold;
   color: #232323;
-}
-
-.form1 {
-  display: flex;
 }
 
 .active-page {
