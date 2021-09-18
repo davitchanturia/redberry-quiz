@@ -113,6 +113,12 @@ body {
 .myquiz .myform .same .left .question-div {
   padding-top: 40px;
 }
+.myquiz .myform .same .left .question-div h1 {
+  margin-block-start: 0em !important;
+  margin-block-end: 0em !important;
+  font-size: 18px;
+  margin-left: 7px;
+}
 .myquiz .myform .same .left .question-div h2 {
   margin-block-start: 0 !important;
   margin-block-end: 0 !important;

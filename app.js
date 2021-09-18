@@ -49,7 +49,7 @@ $(function(){
                     if(mosanishniCovid == "yes"){
                         
                         // ვქმნით ანტისხეულების ტესტის შესახებ კითხვას
-                           $('.answers').append(`
+                           $('.answerOne').append(`
                                
                            <div class="question-div havetest">
     
@@ -71,68 +71,68 @@ $(function(){
                             $(document).on('change' , '.havetest' , function(){
 
                                                 
-                                                var mosanishniTest = $('.havetest[type=radio]:checked').val();
+                             var mosanishniTest = $('.havetest[type=radio]:checked').val();
 
-                                                 //  თუ ანტისხეულების ტესტი გაკეთებული აქვს
-                                                if(mosanishniTest == "yes"){
+                             //  თუ ანტისხეულების ტესტი გაკეთებული აქვს
+                            if(mosanishniTest == "yes"){
+                                
+                                // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
+                                $('.answerTwo').empty();
 
-                                                    // ვქმნით ორ ინფუთს - თარიღი და რაოდენობა
-                                                    $('.answers').append(`
-                                                        
-                                                    <div class="question-div haveAnti">
+                                 // ვქმნით ორ ინფუთს - თარიღი და რაოდენობა
+                                 $('.answerTwo').append(`
+                                     
+                                 <div class="question-div haveAnti">
+                                 
+                                     <h2>თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების რაოდენობა*</h2>
+                                 
+                                     <div class="question-child">
+                                         <input type="date" id="yes" name="d"  class="haveAnti num-input" placeholder="რიცხვი">
+                                      </div>
+                                   
+                                      <div class="question-child">
+                                          <input type="number" id="no" value="2131" name="d" class="haveAnti num-input" style="margin-top:10px;">   
+                                      </div>
+                                   
+                                   </div>
+
+                                 `);
                                 
-                                                        <h2>თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების რაოდენობა*</h2>
+
                                 
-                                                        <div class="question-child">
-                                                            <input type="date" id="yes" name="d"  class="haveAnti num-input" placeholder="რიცხვი">
-                                                         </div>
-                                                      
-                                                         <div class="question-child">
-                                                             <input type="number" id="no" value="2131" name="d" class="haveAnti num-input" style="margin-top:10px;">   
-                                                         </div>
+            
+                            }
+                                    // თუ ტესტი გაკეთებული არ აქვს
+                                    if(mosanishniTest == "no"){
+
+                                        // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
+                                        $('.answerTwo').empty();
+
+                                       // ვქმნით ინფუთს - გადატანის პერიოდი
+                                       $('.answerTwo').append(`
+                                           
+                                       <div class="question-div period">
+                                
+                                           <h2>მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*</h2>
                             
-                                                      
-                                                      </div>
-                                                      
+                                           <div class="question-child">
+                                               <input type="date" id="yes" name="d" value="05/07/1999" class="period num-input" placeholder="რიცხვი">
+                                            </div>
+
+                                         </div>
                                 
-                                                      
-                                                    `);
-                                                    // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
+                                         
+                                       `)
 
-                                                    $('.period').remove();
+                                       
 
-
-
-                                                // თუ ტესტი გაკეთებული არ აქვს
-                                                 }
-                                                 if(mosanishniTest == "no"){
-
-                                                    // ვქმნით ინფუთს - გადატანის პერიოდი
-                                                    $('.answers').append(`
-                                                        
-                                                    <div class="question-div period">
-                                
-                                                        <h2>მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*</h2>
-                            
-                                                        <div class="question-child">
-                                                            <input type="date" id="yes" name="d" value="05/07/1999" class="period num-input" placeholder="რიცხვი">
-                                                         </div>
-
-                                                      </div>
-                                
-                                                      
-                                                    `)
-
-                                                    // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
-
-                                                    $('.haveAnti').remove();
-
-                                                 }
+                                    }
                               })
 
                     }else{
                         // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
-                        $('.answers').empty();
+                        $('.answerOne').empty();
+                        $('.answerTwo').empty();
                         
                     }
 
@@ -144,31 +144,34 @@ $(function(){
                 
                 $(document).on('change' , '.haveVaccine' , function(){
 
-                    // პირველი შეკითხვის value
                     var mosanishniVaccine = $('.haveVaccine[type=radio]:checked').val();
 
-                    console.log(mosanishniVaccine)
+                    // თუ ვაქცინა გაკეთებული აქვს   
                     if(mosanishniVaccine == "yes"){
-                        y++;
-                        $('.left-cont').append(`
+                       
+                      // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
+                        $('.answerOne2').empty();
+
+                        // ვეკითხებით რა ეტაპზეა
+                        $('.answerOne2').append(`
                             
-                        <div class="question-div">
+                        <div class="question-div which-stage">
     
                             <h2>აირჩიე რა ეტაპზე ხარ*</h2>
     
                             <div class="question-child">
-                                <input type="radio" id="yes" name="m" value="first-Doze" class="">
+                                <input type="radio" id="yes" name="m" value="first-Doze" class="stage">
                                 <label for="first-Doze">პირველი დოზა და დარეგისტრირებული ვარ მეორეზე</label>
                              </div>
                           
                              <div class="question-child">
-                                 <input type="radio" id="no" name="m" value="full-vacinated" class="">
+                                 <input type="radio" id="no" name="m" value="full-vacinated" class="stage">
                                  <label for="full-vacinated">სრულად აცრილი ვარ</label>
                              </div>
 
                              <div class="question-child">
-                             <input type="radio" id="no" name="m" value="only-first" class="link">
-                             <label for="only-first">პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე</label>
+                             <input type="radio" id="no" name="m" value="onlyFirst" class="stage">
+                             <label for="onlyFirst">პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე</label>
                          </div>
 
                           
@@ -176,6 +179,128 @@ $(function(){
     
                           
                         `);
+
+                        $(document).on('change' , '.stage' , function(){
+
+                            var mosanishniStage = $('.stage[type=radio]:checked').val();
+
+                            // თუ პირველი დოზა გაკეთებული აქვს და მეორეზე დარეგისტრირებულია
+                            if(mosanishniStage == "onlyFirst"){
+
+                               // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
+                                $('.answerTwo2').empty();
+
+                                // გამოგვაქვს დამატებითი ინფო
+                                $('.answerTwo2').append(`
+                                
+                                    <div class="question-div which-stage  ms-5">
+                                        
+                                        <h2>რომ არ გადადო, ბარემ ახლავე დარეგისტრირდი </h2>
+                                        
+                                        <a href="https://booking.moh.gov.ge/" style="font-size:20px;"> https://booking.moh.gov.ge/</a>
+                                        
+                                     </div>
+                                
+
+                                `)
+                            }
+                            if(mosanishniStage == "full-vacinated" || mosanishniStage == "first-Doze"){
+
+                                // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
+                                $('.answerTwo2').empty();
+
+                            }
+
+                        })
+
+                    // თუ ვაქცინა გაკეთებული არ აქვს  
+                    }else{
+
+                        // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
+                        $('.answerOne2').empty();
+                        $('.answerTwo2').empty();
+
+                        // ვეკითხებით რას ელოდება
+                        $('.answerOne2').append(`
+                            
+                        <div class="question-div">
+    
+                            <h2>რას ელოდები?*</h2>
+    
+                            <div class="question-child">
+                                <input type="radio" id="yes" name="n" value="waiting-second" class="why">
+                                <label for="waiting-second">დარეგისტრირებული ვარ და ველოდები რიცხვს</label>
+                             </div>
+                          
+                             <div class="question-child">
+                                 <input type="radio" id="no" name="n" value="no" class="why">
+                                 <label for="no">არ ვგეგმავ</label>
+                             </div>
+
+                             <div class="question-child">
+                             <input type="radio" id="no" name="n" value="alreadyHad" class="why">
+                             <label for="alreadyHad">გადატანილი მაქვს და ვგეგმავ აცრას</label>
+                         </div>
+
+                          
+                          </div>
+    
+                          
+                        `);
+
+                        $(document).on('change' , '.why' , function(){
+
+                            var mosanishniWhy = $('.why[type=radio]:checked').val();
+
+                            // თუ პირველი დოზა გაკეთებული აქვს და მეორეზე დარეგისტრირებულია
+                            if(mosanishniWhy == "no"){
+
+                               // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
+                                $('.answerTwo2').empty();
+
+                                // გამოგვაქვს დამატებითი ინფო
+                                $('.answerTwo2').append(`
+                                
+                                    <div class="question-div which-stage d-flex align-items-center ms-5">
+                                        <i class="bi bi-arrow-right-circle" style="color:green!important; font-size:20px;" ></i>
+                                        <a href="https://booking.moh.gov.ge/" style="font-size:20px; margin-left:15px;"> https://booking.moh.gov.ge/</a>
+                                     </div>
+                                
+
+                                `)
+                            }
+                            // თუ გადატანილი აქვს და გეგმავს აცრას
+                            if(mosanishniWhy == "alreadyHad"){
+
+                                // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
+                                $('.answerTwo2').empty();
+
+                                // გამოგვაქვს დამატებითი ინფო
+                                $('.answerTwo2').append(`
+                                
+                                    <div class="question-div which-stage align-items-center ms-5">
+
+                                        <h2>ახალი პროტოკოლით კოვიდის გადატანიდან 1 თვის შემდეგ შეგიძლიათ ვაქცინის გაკეთება. </h2>
+
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-arrow-right-circle" style="color:green!important; font-size:20px;" ></i>
+                                            <h1>რეგისტრაციის ბმული</h1> <br>
+                                        </div>
+                                         <a href="https://booking.moh.gov.ge/" style="font-size:20px; "> https://booking.moh.gov.ge/</a>
+                                     </div>
+                                
+
+                                `)
+
+                            }
+                            if(mosanishniWhy == "waiting-second"){
+
+                                // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
+                                $('.answerTwo2').empty();
+
+                            }
+
+                        })
 
                     }
                 })
