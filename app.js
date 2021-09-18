@@ -16,7 +16,6 @@ $('.inputs').keydown(function(e) {
     }
   });
 
-
     // x ცვლადს ვქმნით რომ ვაკონტროლოთ რომელ გვერდზე ვართ
     let x = 0; 
 
@@ -29,7 +28,6 @@ $('.inputs').keydown(function(e) {
         if(x < 4){
             $('.active-page').removeClass('active-page').next().addClass('active-page');
             x++;
-
 
             if( x == 1 ){                
 
@@ -44,6 +42,7 @@ $('.inputs').keydown(function(e) {
                     // let endValue = input3.val();
                     let valstring = input3.split('@');
 
+                    // ამ კოდით ვამოწმებთ ინფუთში ასოების რაოდენბა თუ არის 3-255 შუალედში და თუ მეილი მთავრდება redberry.ge ზე
                     if( valstring[1] == "redberry.ge" && input1.length > 3 && input1.length < 255 && input2.length > 3  && input2.length < 255){
                         $('.first-valid').removeAttr('disabled');
                         $('.error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
@@ -51,9 +50,7 @@ $('.inputs').keydown(function(e) {
                     }else {
                         $('.first-valid').prop('disabled', true);
                     }
-
                 })
-
             }
 
             if( x == 2){
@@ -97,8 +94,7 @@ $('.inputs').keydown(function(e) {
                            `);
                                       
                             $(document).on('change' , '.havetest' , function(){
-
-                                                
+        
                              var mosanishniTest = $('.havetest[type=radio]:checked').val();
 
                              //  თუ ანტისხეულების ტესტი გაკეთებული აქვს
@@ -128,7 +124,6 @@ $('.inputs').keydown(function(e) {
                                    </div>
 
                                  `);
-
 
                             }
                              // თუ ტესტი გაკეთებული არ აქვს
@@ -180,10 +175,7 @@ $('.inputs').keydown(function(e) {
                         $('.second-valid').prop('disabled', false);
                         
                     }
-
                 })
-
-                
             }
 
             if( x == 3){
@@ -227,13 +219,11 @@ $('.inputs').keydown(function(e) {
                              </div>
 
                              <div class="question-child">
-                             <input type="radio" id="no" name="m" value="onlyFirst" class="stage">
-                             <label for="onlyFirst">პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე</label>
-                         </div>
+                                 <input type="radio" id="no" name="m" value="onlyFirst" class="stage">
+                                 <label for="onlyFirst">პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე</label>
+                             </div>
 
-                          
                           </div>
-    
                           
                         `);
 
@@ -244,13 +234,11 @@ $('.inputs').keydown(function(e) {
                             // თუ პირველი დოზა გაკეთებული აქვს და მეორეზე არ არის დარეგისტრირებულია
                             if(mosanishniStage == "onlyFirst"){
                                 
-
                                  //  შემდეგ გვერდზე გადასასვლელი ვალიდაციის კოდი
                                  $('.third-valid').prop('disabled', false);
 
                                // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
                                 $('.answerTwo2').empty();
-
 
                                 // გამოგვაქვს დამატებითი ინფო
                                 $('.answerTwo2').append(`
@@ -262,7 +250,6 @@ $('.inputs').keydown(function(e) {
                                         <a href="https://booking.moh.gov.ge/" style="font-size:20px;"> https://booking.moh.gov.ge/</a>
                                         
                                      </div>
-                                
 
                                 `)
                             }
@@ -306,14 +293,12 @@ $('.inputs').keydown(function(e) {
                              </div>
 
                              <div class="question-child">
-                             <input type="radio" id="no" name="n" value="alreadyHad" class="why">
-                             <label for="alreadyHad">გადატანილი მაქვს და ვგეგმავ აცრას</label>
-                         </div>
+                                 <input type="radio" id="no" name="n" value="alreadyHad" class="why">
+                                <label for="alreadyHad">გადატანილი მაქვს და ვგეგმავ აცრას</label>
+                             </div>
 
-                          
                           </div>
     
-                          
                         `);
 
                         $(document).on('change' , '.why' , function(){
@@ -337,7 +322,6 @@ $('.inputs').keydown(function(e) {
                                         <a href="https://booking.moh.gov.ge/" style="font-size:20px; margin-left:15px;"> https://booking.moh.gov.ge/</a>
                                      </div>
                                 
-
                                 `)
                             }
                             // თუ გადატანილი აქვს და გეგმავს აცრას
@@ -363,33 +347,25 @@ $('.inputs').keydown(function(e) {
                                          <a href="https://booking.moh.gov.ge/" style="font-size:20px; "> https://booking.moh.gov.ge/</a>
                                      </div>
                                 
-
                                 `)
-
                             }
                             if(mosanishniWhy == "waiting-second"){
-
                                  //  შემდეგ გვერდზე გადასასვლელი ვალიდაციის კოდი
                                  $('.third-valid').prop('disabled', false);
 
                                 // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
                                 $('.answerTwo2').empty();
-
                             }
-
                         })
-
                     }
                 })
             }   
-        }
-        
+        } 
     })
     $('.back').click(function(){
         if(x > 1){
             $('.active-page').removeClass('active-page').prev().addClass('active-page');
-            x--;
-            
+            x--;   
         }
     })
 
