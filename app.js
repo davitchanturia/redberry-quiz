@@ -75,6 +75,9 @@ $(function(){
 
                              //  თუ ანტისხეულების ტესტი გაკეთებული აქვს
                             if(mosanishniTest == "yes"){
+
+                                  //  შემდეგ გვერდზე გადასასვლელი ვალიდაციის კოდი
+                                   $('.second-valid').prop('disabled', true);
                                 
                                 // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
                                 $('.answerTwo').empty();
@@ -99,53 +102,52 @@ $(function(){
                                  `);
 
 
-                                //  შემდეგ გვერდზე გადასასვლელი ვალიდაციის კოდი
-                                $(document).on('change' , '.forValidation' , function(){
-                                   
-                                    let dateVal = $('.forValidation[id = yes]').val();
-                                    let numVal = $('.forValidation[id = no]').val();
+                               
 
-                                   if( dateVal != 0 && numVal != 0){
-                                    $('.second-valid').removeAttr('disabled');
-                                   }
+                               
+
+                            }
+                             // თუ ტესტი გაკეთებული არ აქვს
+                            if(mosanishniTest == "no"){
+
+                                  //  შემდეგ გვერდზე გადასასვლელი ვალიდაციის კოდი
+                                 $('.second-valid').prop('disabled', true);
+
+                                  // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
+                                  $('.answerTwo').empty();
+
+                                 // ვქმნით ინფუთს - გადატანის პერიოდი
+                                 $('.answerTwo').append(`
+                                     
+                                 <div class="question-div period">
+                                    
+                                     <h2>მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*</h2>
+                                
+                                     <div class="question-child">
+                                         <input type="date" id="yes" name="d" value="05/07/1999" class="period num-input forValidation" placeholder="რიცხვი">
+                                      </div>
+
+                                   </div>
+                                    
+                                   
+                                 `)
+
+                                           
+
+                                }
+
+                                     //  შემდეგ გვერდზე გადასასვლელი ვალიდაციის კოდი
+                                    $(document).on('change' , '.forValidation' , function(){
+                                   
+                                        let dateVal = $('.forValidation[id = yes]').val();
+                                        let numVal = $('.forValidation[id = no]').val();
+
+                                        if( dateVal != 0 && numVal != 0){
+                                          $('.second-valid').removeAttr('disabled');
+                                       }
     
                                  })
 
-                               
-                                
-
-                                
-                                
-
-
-
-            
-                            }
-                                    // თუ ტესტი გაკეთებული არ აქვს
-                                    if(mosanishniTest == "no"){
-
-                                        // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
-                                        $('.answerTwo').empty();
-
-                                       // ვქმნით ინფუთს - გადატანის პერიოდი
-                                       $('.answerTwo').append(`
-                                           
-                                       <div class="question-div period">
-                                
-                                           <h2>მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*</h2>
-                            
-                                           <div class="question-child">
-                                               <input type="date" id="yes" name="d" value="05/07/1999" class="period num-input forValidation" placeholder="რიცხვი">
-                                            </div>
-
-                                         </div>
-                                
-                                         
-                                       `)
-
-                                       
-
-                                    }
                               })
 
                     }else{
@@ -172,6 +174,9 @@ $(function(){
 
                     // თუ ვაქცინა გაკეთებული აქვს   
                     if(mosanishniVaccine == "yes"){
+
+                        //  შემდეგ გვერდზე გადასასვლელი ვალიდაციის კოდი
+                        $('.third-valid').prop('disabled', true);
                        
                       // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
                         $('.answerOne2').empty();
@@ -208,8 +213,11 @@ $(function(){
 
                             var mosanishniStage = $('.stage[type=radio]:checked').val();
 
-                            // თუ პირველი დოზა გაკეთებული აქვს და მეორეზე დარეგისტრირებულია
+                            // თუ პირველი დოზა გაკეთებული აქვს და მეორეზე არ არის დარეგისტრირებულია
                             if(mosanishniStage == "onlyFirst"){
+
+                                 //  შემდეგ გვერდზე გადასასვლელი ვალიდაციის კოდი
+                                 $('.third-valid').prop('disabled', false);
 
                                // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
                                 $('.answerTwo2').empty();
@@ -233,6 +241,9 @@ $(function(){
                                 // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
                                 $('.answerTwo2').empty();
 
+                                //  შემდეგ გვერდზე გადასასვლელი ვალიდაციის კოდი
+                                $('.third-valid').prop('disabled', false);
+
                             }
 
                         })
@@ -243,6 +254,9 @@ $(function(){
                         // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
                         $('.answerOne2').empty();
                         $('.answerTwo2').empty();
+
+                         //  შემდეგ გვერდზე გადასასვლელი ვალიდაციის კოდი
+                         $('.third-valid').prop('disabled', true);
 
                         // ვეკითხებით რას ელოდება
                         $('.answerOne2').append(`
@@ -278,6 +292,9 @@ $(function(){
 
                             // თუ პირველი დოზა გაკეთებული აქვს და მეორეზე დარეგისტრირებულია
                             if(mosanishniWhy == "no"){
+                                
+                                 //  შემდეგ გვერდზე გადასასვლელი ვალიდაციის კოდი
+                                 $('.third-valid').prop('disabled', false); 
 
                                // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
                                 $('.answerTwo2').empty();
@@ -295,6 +312,9 @@ $(function(){
                             }
                             // თუ გადატანილი აქვს და გეგმავს აცრას
                             if(mosanishniWhy == "alreadyHad"){
+
+                                 //  შემდეგ გვერდზე გადასასვლელი ვალიდაციის კოდი
+                                 $('.third-valid').prop('disabled', false);
 
                                 // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
                                 $('.answerTwo2').empty();
@@ -319,6 +339,9 @@ $(function(){
                             }
                             if(mosanishniWhy == "waiting-second"){
 
+                                 //  შემდეგ გვერდზე გადასასვლელი ვალიდაციის კოდი
+                                 $('.third-valid').prop('disabled', false);
+
                                 // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
                                 $('.answerTwo2').empty();
 
@@ -341,7 +364,3 @@ $(function(){
     })
 
 })
-    
-
-   
-
