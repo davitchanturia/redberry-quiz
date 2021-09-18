@@ -75,7 +75,7 @@ body {
 .myquiz .myform .same .left .inp-div {
   margin-top: 42px;
 }
-.myquiz .myform .same .left .inp-div .email-error {
+.myquiz .myform .same .left .inp-div .error {
   height: 10px;
   margin-top: 10px;
   color: #FE3B1F;
@@ -170,7 +170,7 @@ body {
   margin-left: auto;
   padding: 10px 24px;
   background-color: #208298;
-  border-radius: 15px;
+  border-radius: 20px;
   color: #fff;
   border: none;
   outline: none;

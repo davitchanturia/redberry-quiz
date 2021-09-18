@@ -17,26 +17,98 @@ $(function(){
             $('.active-page').removeClass('active-page').next().addClass('active-page');
             x++;
 
+
             if( x == 1 ){
 
                 // ამ ფუნქციით იუზერი ვერ გადავა შემდეგზე თუ მეილი სწორად არ შეიყვანა (@redberry.com - ით უნდა მთავრდებოდეს)
-                input3.keyup(function(e){
-                    // let value = e.target.value;
+                
+                
+                // input3.keyup(function(e){
+                //     // let value = e.target.value;
 
-                    let endValue = input3.val();
-                    let valstring = endValue.split('@');
+                //     let endValue = input3.val();
+                //     let valstring = endValue.split('@');
 
-                        if( valstring[1] == "redberry.ge" ){
-                            $('.first-valid').prop('disabled', false);
-                            $('.email-error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
+                //         if( valstring[1] == "redberry.ge" ){
+                //             $('.first-valid').prop('disabled', false);
+                //             $('.email-error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
+                //         }else{
+                //             $('.first-valid').prop('disabled', true);
+                //             $('.email-error').text('გთხოვთ დარეგისტრირდეთ რედბერის მეილით');
+                //         }
+                // })
+
+                $('.forValidation').keyup(function(){
+
+                    let input1 = $('#first-input').val();
+                    let input2 = $('#second-input').val();
+                    let input3 = $('#third-input').val();
+
+                    console.log(input1.length)
+                    // let endValue = input3.val();
+                    let valstring = input3.split('@');
+
+                    // if( valstring[1] == "redberry.ge" && input1.length > 3 && input1.length < 255 && input2.length > 3  && input2.length < 255){
+                    //     $('.first-valid').removeAttr('disabled');
+                    //     if(valstring[1] == "redberry.ge" ){
+                    //         $('.email-error').text('გთხოვთ დარეგისტრირდეთ რედბერის მეილით');
+                    //     }
+                    //     $('.email-error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
+                    // }else{
+                    //     $('.first-valid').prop('disabled', true);
+                    //     if(valstring[1] != "redberry.ge" ){
+                    //         $('.email-error').text('გთხოვთ დარეგისტრირდეთ რედბერის მეილით');
+                    //     }
+                    // }
+
+
+                    if(input1.length > 3 && input1.length < 255){
+                        $('.name-error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
+
+                        if(input2.length > 3 && input2.length < 255){
+                            $('.lastname-error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
+
+                            if(valstring[1] == "redberry.ge"){
+                                $('.email-error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
+
+                                $('.first-valid').removeAttr('disabled');
+                            }else{
+                                $('.email-error').text('გთხოვთ დარეგისტრირდეთ რედბერის მეილით');
+                            }
                         }else{
-                            $('.first-valid').prop('disabled', true);
-                            $('.email-error').text('გთხოვთ დარეგისტრირდეთ რედბერის მეილით');
+                            $('.lastname-error').text('გთხოვთ შეიყვანოთ მხოლოდ ალფაბეტის სიმბოლოები');
                         }
+
+                    }else{
+                        $('.name-error').text('გთხოვთ შეიყვანოთ მხოლოდ ალფაბეტის სიმბოლოები');
+                    }
+
+
+
+
+
+
+
+
+
                 })
+
+
+
+
+
+
             }
 
             if( x == 2){
+
+                // enter ღილაკის დაჭერით რომ არ გადავიდეს ინფუთების შეუვსებლად შემდეგ გვერდზე
+                $(document).on('keyup keypress', 'input', function(e) {
+                    if(e.which == 13) {
+                      e.preventDefault();
+                      return false;
+                    }
+                  });
 
                 $(document).on('change' , '.haveCovid' , function(){
 
@@ -102,10 +174,6 @@ $(function(){
                                  `);
 
 
-                               
-
-                               
-
                             }
                              // თუ ტესტი გაკეთებული არ აქვს
                             if(mosanishniTest == "no"){
@@ -129,10 +197,7 @@ $(function(){
 
                                    </div>
                                     
-                                   
                                  `)
-
-                                           
 
                                 }
 
@@ -160,13 +225,20 @@ $(function(){
                         
                     }
 
-
                 })
 
                 
             }
 
             if( x == 3){
+
+                // enter ღილაკის დაჭერით რომ არ გადავიდეს ინფუთების შეუვსებლად შემდეგ გვერდზე
+                $(document).on('keyup keypress', 'input', function(e) {
+                    if(e.which == 13) {
+                      e.preventDefault();
+                      return false;
+                    }
+                  });
                 
                 $(document).on('change' , '.haveVaccine' , function(){
 
@@ -215,12 +287,14 @@ $(function(){
 
                             // თუ პირველი დოზა გაკეთებული აქვს და მეორეზე არ არის დარეგისტრირებულია
                             if(mosanishniStage == "onlyFirst"){
+                                
 
                                  //  შემდეგ გვერდზე გადასასვლელი ვალიდაციის კოდი
                                  $('.third-valid').prop('disabled', false);
 
                                // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
                                 $('.answerTwo2').empty();
+
 
                                 // გამოგვაქვს დამატებითი ინფო
                                 $('.answerTwo2').append(`
