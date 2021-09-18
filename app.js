@@ -1,6 +1,5 @@
 $(function(){
 
-    // let input = $('.inputs')''
     let input1 = $('#first-input');
     let input2 = $('#second-input');
     let input3 = $('#third-input');
@@ -18,8 +17,6 @@ $(function(){
             $('.active-page').removeClass('active-page').next().addClass('active-page');
             x++;
 
-            
-
             if( x == 1 ){
 
                 // ამ ფუნქციით იუზერი ვერ გადავა შემდეგზე თუ მეილი სწორად არ შეიყვანა (@redberry.com - ით უნდა მთავრდებოდეს)
@@ -30,10 +27,10 @@ $(function(){
                     let valstring = endValue.split('@');
 
                         if( valstring[1] == "redberry.com" ){
-                            $('.next').prop('disabled', false);
+                            $('.first-valid').prop('disabled', false);
                             $('.email-error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
                         }else{
-                            $('.next').prop('disabled', true);
+                            $('.first-valid').prop('disabled', true);
                             $('.email-error').text('გთხოვთ დარეგისტრირდეთ რედბერის მეილით');
                         }
                 })
@@ -46,8 +43,11 @@ $(function(){
                     var mosanishniCovid = $('.haveCovid[type=radio]:checked').val();
 
                     // თუ კოვიდი გადატანილი აქვს
-                    if(mosanishniCovid == "yes"){
+                    if( mosanishniCovid == "yes" ){
                         
+                        //  შემდეგ გვერდზე გადასასვლელი ვალიდაციის კოდი
+                        $('.second-valid').prop('disabled', true);
+
                         // ვქმნით ანტისხეულების ტესტის შესახებ კითხვას
                            $('.answerOne').append(`
                                
@@ -79,7 +79,7 @@ $(function(){
                                 // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
                                 $('.answerTwo').empty();
 
-                                 // ვქმნით ორ ინფუთს - თარიღი და რაოდენობა
+                                 // ვქმნით ორ ინფუთს - თარიღი და რაოდენობა 
                                  $('.answerTwo').append(`
                                      
                                  <div class="question-div haveAnti">
@@ -87,19 +87,38 @@ $(function(){
                                      <h2>თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების რაოდენობა*</h2>
                                  
                                      <div class="question-child">
-                                         <input type="date" id="yes" name="d"  class="haveAnti num-input" placeholder="რიცხვი">
+                                         <input type="date" id="yes" name="d"  class="haveAnti num-input forValidation" placeholder="რიცხვი">
                                       </div>
                                    
                                       <div class="question-child">
-                                          <input type="number" id="no" value="2131" name="d" class="haveAnti num-input" style="margin-top:10px;">   
+                                          <input type="number" id="no" value="" name="d" class="haveAnti num-input forValidation" style="margin-top:10px;">   
                                       </div>
                                    
                                    </div>
 
                                  `);
+
+
+                                //  შემდეგ გვერდზე გადასასვლელი ვალიდაციის კოდი
+                                $(document).on('change' , '.forValidation' , function(){
+                                   
+                                    let dateVal = $('.forValidation[id = yes]').val();
+                                    let numVal = $('.forValidation[id = no]').val();
+
+                                   if( dateVal != 0 && numVal != 0){
+                                    $('.second-valid').removeAttr('disabled');
+                                   }
+    
+                                 })
+
+                               
                                 
 
                                 
+                                
+
+
+
             
                             }
                                     // თუ ტესტი გაკეთებული არ აქვს
@@ -116,7 +135,7 @@ $(function(){
                                            <h2>მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*</h2>
                             
                                            <div class="question-child">
-                                               <input type="date" id="yes" name="d" value="05/07/1999" class="period num-input" placeholder="რიცხვი">
+                                               <input type="date" id="yes" name="d" value="05/07/1999" class="period num-input forValidation" placeholder="რიცხვი">
                                             </div>
 
                                          </div>
@@ -133,11 +152,16 @@ $(function(){
                         // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
                         $('.answerOne').empty();
                         $('.answerTwo').empty();
+
+                        //  შემდეგ გვერდზე გადასასვლელი ვალიდაციის კოდი
+                        $('.second-valid').prop('disabled', false);
                         
                     }
 
 
                 })
+
+                
             }
 
             if( x == 3){
