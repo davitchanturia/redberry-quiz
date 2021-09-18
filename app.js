@@ -16,7 +16,6 @@ $('.inputs').keydown(function(e) {
     }
   });
 
-    
 
     // x ცვლადს ვქმნით რომ ვაკონტროლოთ რომელ გვერდზე ვართ
     let x = 0; 
@@ -32,25 +31,7 @@ $('.inputs').keydown(function(e) {
             x++;
 
 
-            if( x == 1 ){
-
-                // ამ ფუნქციით იუზერი ვერ გადავა შემდეგზე თუ მეილი სწორად არ შეიყვანა (@redberry.com - ით უნდა მთავრდებოდეს)
-                
-                
-                // input3.keyup(function(e){
-                //     // let value = e.target.value;
-
-                //     let endValue = input3.val();
-                //     let valstring = endValue.split('@');
-
-                //         if( valstring[1] == "redberry.ge" ){
-                //             $('.first-valid').prop('disabled', false);
-                //             $('.email-error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
-                //         }else{
-                //             $('.first-valid').prop('disabled', true);
-                //             $('.email-error').text('გთხოვთ დარეგისტრირდეთ რედბერის მეილით');
-                //         }
-                // })
+            if( x == 1 ){                
 
                 // პირველი გვერდის ვალიდაციის კოდი
                 $('.forValidation').keyup(function(){
@@ -63,59 +44,15 @@ $('.inputs').keydown(function(e) {
                     // let endValue = input3.val();
                     let valstring = input3.split('@');
 
-                    // if( valstring[1] == "redberry.ge" && input1.length > 3 && input1.length < 255 && input2.length > 3  && input2.length < 255){
-                    //     $('.first-valid').removeAttr('disabled');
-                    //     if(valstring[1] == "redberry.ge" ){
-                    //         $('.email-error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
-                    //     }
+                    if( valstring[1] == "redberry.ge" && input1.length > 3 && input1.length < 255 && input2.length > 3  && input2.length < 255){
+                        $('.first-valid').removeAttr('disabled');
+                        $('.error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
 
-                    // }else{
-                    //     $('.first-valid').prop('disabled', true);
-                    //     if(valstring[1] != "redberry.ge" ){
-                    //         $('.email-error').text('გთხოვთ დარეგისტრირდეთ რედბერის მეილით');
-                    //     }
-                    // }
-
-
-                    
-                    
-
-
-                    if(input1.length > 3 && input1.length < 255){
-                        // $('.name-error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
-
-                        if(input2.length > 3 && input2.length < 255){
-                            // $('.lastname-error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
-
-                            if(valstring[1] == "redberry.ge"){
-                                // $('.email-error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
-
-                                $('.first-valid').removeAttr('disabled');
-                            }else{
-                                // $('.email-error').text('გთხოვთ დარეგისტრირდეთ რედბერის მეილით');
-                            }
-                        }else{
-                            // $('.lastname-error').text('გთხოვთ შეიყვანოთ მხოლოდ ალფაბეტის სიმბოლოები');
-                        }
-
-                    }else{
-                        // $('.name-error').text('გთხოვთ შეიყვანოთ მხოლოდ ალფაბეტის სიმბოლოები');
+                    }else {
+                        $('.first-valid').prop('disabled', true);
                     }
 
-
-
-
-
-
-
-
-
                 })
-
-
-
-
-
 
             }
 
