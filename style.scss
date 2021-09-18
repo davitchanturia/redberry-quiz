@@ -171,16 +171,35 @@ body{
                  img{
                      position: relative;
                      max-width: 100%;
-                     max-height: 100%!important ;
+                     max-height: 100%!important;
                      margin-top: -30px;
                      object-fit: cover;
                  }
+                 .first-img{
+                     width: 904px;
+                     height: 831px;
+                 }
+                 .second-img{
+                    width: 949px;
+                    height: 892px;
+                }
+                .third-img{
+                    width: 783px;
+                    height: 739px;
+                    margin-top: 40px;
+                }
+                .forth-img{
+                    width: 703px;
+                    height: 703px;
+                    margin-top: 40px;
+                    // margin-left: 30px;
+                }
              }
              .navigation{
                  width: 100%;
                  position: absolute;
                  left: 0!important;
-                 bottom: 120px!important;
+                 bottom: 60px!important;
                  .navig-child{
                      width: 140px;
                      margin: auto;
@@ -225,7 +244,7 @@ body{
 
 
 
-// misanichebeli klasebi
+// მისანიჭებელი კლასი აქტიური ფეიჯისთვის
 
 .active-page{
     opacity: 1!important;

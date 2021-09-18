@@ -183,11 +183,29 @@ body {
   margin-top: -30px;
   object-fit: cover;
 }
+.myquiz .myform .same .right .first-img {
+  width: 904px;
+  height: 831px;
+}
+.myquiz .myform .same .right .second-img {
+  width: 949px;
+  height: 892px;
+}
+.myquiz .myform .same .right .third-img {
+  width: 783px;
+  height: 739px;
+  margin-top: 40px;
+}
+.myquiz .myform .same .right .forth-img {
+  width: 703px;
+  height: 703px;
+  margin-top: 40px;
+}
 .myquiz .myform .same .navigation {
   width: 100%;
   position: absolute;
   left: 0 !important;
-  bottom: 120px !important;
+  bottom: 60px !important;
 }
 .myquiz .myform .same .navigation .navig-child {
   width: 140px;

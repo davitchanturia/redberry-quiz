@@ -26,7 +26,7 @@ $(function(){
                     let endValue = input3.val();
                     let valstring = endValue.split('@');
 
-                        if( valstring[1] == "redberry.com" ){
+                        if( valstring[1] == "redberry.ge" ){
                             $('.first-valid').prop('disabled', false);
                             $('.email-error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
                         }else{
