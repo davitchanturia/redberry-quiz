@@ -4,6 +4,20 @@ $(function(){
     let input2 = $('#second-input');
     let input3 = $('#third-input');
 
+// ამ კოდის საშალებით იუზერი ვერ შეიყვანს რიცხვებს სახელის და გვარის ინფუთებში
+$('.inputs').keydown(function(e) {
+    if (e.shiftKey || e.ctrlKey || e.altKey) {
+      e.preventDefault();
+    } else {
+      var key = e.keyCode;
+      if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+        e.preventDefault();
+      }
+    }
+  });
+
+    
+
     // x ცვლადს ვქმნით რომ ვაკონტროლოთ რომელ გვერდზე ვართ
     let x = 0; 
 
@@ -38,6 +52,7 @@ $(function(){
                 //         }
                 // })
 
+                // პირველი გვერდის ვალიდაციის კოდი
                 $('.forValidation').keyup(function(){
 
                     let input1 = $('#first-input').val();
@@ -51,9 +66,9 @@ $(function(){
                     // if( valstring[1] == "redberry.ge" && input1.length > 3 && input1.length < 255 && input2.length > 3  && input2.length < 255){
                     //     $('.first-valid').removeAttr('disabled');
                     //     if(valstring[1] == "redberry.ge" ){
-                    //         $('.email-error').text('გთხოვთ დარეგისტრირდეთ რედბერის მეილით');
+                    //         $('.email-error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
                     //     }
-                    //     $('.email-error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
+
                     // }else{
                     //     $('.first-valid').prop('disabled', true);
                     //     if(valstring[1] != "redberry.ge" ){
@@ -62,25 +77,29 @@ $(function(){
                     // }
 
 
+                    
+                    
+
+
                     if(input1.length > 3 && input1.length < 255){
-                        $('.name-error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
+                        // $('.name-error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
 
                         if(input2.length > 3 && input2.length < 255){
-                            $('.lastname-error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
+                            // $('.lastname-error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
 
                             if(valstring[1] == "redberry.ge"){
-                                $('.email-error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
+                                // $('.email-error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
 
                                 $('.first-valid').removeAttr('disabled');
                             }else{
-                                $('.email-error').text('გთხოვთ დარეგისტრირდეთ რედბერის მეილით');
+                                // $('.email-error').text('გთხოვთ დარეგისტრირდეთ რედბერის მეილით');
                             }
                         }else{
-                            $('.lastname-error').text('გთხოვთ შეიყვანოთ მხოლოდ ალფაბეტის სიმბოლოები');
+                            // $('.lastname-error').text('გთხოვთ შეიყვანოთ მხოლოდ ალფაბეტის სიმბოლოები');
                         }
 
                     }else{
-                        $('.name-error').text('გთხოვთ შეიყვანოთ მხოლოდ ალფაბეტის სიმბოლოები');
+                        // $('.name-error').text('გთხოვთ შეიყვანოთ მხოლოდ ალფაბეტის სიმბოლოები');
                     }
 
 
