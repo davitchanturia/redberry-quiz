@@ -221,6 +221,7 @@ body {
   background-color: #208298;
   border-radius: 20px;
   color: #fff;
+  cursor: pointer;
   border: none;
   outline: none;
 }

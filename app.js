@@ -38,7 +38,6 @@ $('.inputs').keydown(function(e) {
                     let input2 = $('#second-input').val();
                     let input3 = $('#third-input').val();
 
-                    console.log(input1.length)
                     // let endValue = input3.val();
                     let valstring = input3.split('@');
 
@@ -51,6 +50,16 @@ $('.inputs').keydown(function(e) {
                         $('.first-valid').prop('disabled', true);
                     }
                 })
+
+
+
+                // enter ღილაკის დაჭერით რომ არ გადავიდეს ინფუთების შეუვსებლად შემდეგ გვერდზე
+                $(document).on('keyup keypress', 'input', function(e) {
+                    if(e.which == 13) {
+                      e.preventDefault();
+                      return false;
+                    }
+                  });
             }
 
             if( x == 2){
@@ -362,8 +371,30 @@ $('.inputs').keydown(function(e) {
             }  
             
             if( x == 4){
-               
                 
+                // enter ღილაკის დაჭერით რომ არ გადავიდეს ინფუთების შეუვსებლად შემდეგ გვერდზე
+                $(document).on('keyup keypress', 'input', function(e) {
+                    if(e.which == 13) {
+                      e.preventDefault();
+                      return false;
+                    }
+                  });
+
+
+                //   ბოლო გვერდის ვალიდაციის კოდი
+                  $(document).on('change' , '.final-validation' , function(){
+
+                    var mosanishniLastValid1 = $('.last-valid[type=radio]:checked').val();
+                    var mosanishniLastValid2 = $('.last-valid2[type=radio]:checked').val();
+
+                    console.log(mosanishniLastValid1 , mosanishniLastValid2)
+                   if(mosanishniLastValid1 == 'next' && mosanishniLastValid2 == 'next'){
+                       $('.end').prop('disabled', false);
+                   }else{
+                        $('.end').prop('disabled', true);
+                   }
+                  })
+
              }
 
 
@@ -380,18 +411,6 @@ $('.inputs').keydown(function(e) {
                 }, 1200);
             }
 
-            
-
-                // enter ღილაკის დაჭერით რომ არ გადავიდეს ინფუთების შეუვსებლად შემდეგ გვერდზე
-                $(document).on('keydown keyup', 'input ', function(e) {
-                    if(e.which == 13) {
-                      e.preventDefault();
-                      return false;
-                    }
-                  });
-
-               
-            
         } 
     })
     $('.back').click(function(){
