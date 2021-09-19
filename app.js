@@ -1,9 +1,5 @@
 $(function(){
 
-    let input1 = $('#first-input');
-    let input2 = $('#second-input');
-    let input3 = $('#third-input');
-
     // ამ კოდის საშალებით იუზერი ვერ შეიყვანს რიცხვებს სახელის და გვარის ინფუთებში
     onlyAlphabet();
 
@@ -101,7 +97,7 @@ $(function(){
                                      <h2>თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების რაოდენობა*</h2>
                                  
                                      <div class="question-child">
-                                         <input type="date" id="yes" name="d"  class="haveAnti num-input forValidation" placeholder="რიცხვი">
+                                         <input type="date" id="yes" name="d"  class="haveAnti num-input forValidation">
                                       </div>
                                    
                                       <div class="question-child">
@@ -111,6 +107,17 @@ $(function(){
                                    </div>
 
                                  `);
+
+                                //  ამ კოდის საშუალებით დინამიურად შექმნილი ინფუთისგან ამოვიღებთ ველიუს(კერძოდ, სტატიკურ ინფუთს გავატანთ ატრიბუტად)
+                               
+                               // სხვა პასუხის შემთხვევაში ამ ატრიბუტი წაშლა ახალ არჩეულს როარ გადაეწეროს    
+                                $('.haveCovid:checked').removeAttr('data-test');
+                                
+                                // data-test მინიჭება
+                                $('.haveCovid:checked').attr('data-test' , 'yes');
+                                 let UserHasTest = $('.haveCovid:checked').attr('data-test');
+
+                                
                             }
                              // თუ ტესტი გაკეთებული არ აქვს
                             if(mosanishniTest == "no"){
@@ -136,6 +143,11 @@ $(function(){
                                     
                                  `)
                                 }
+                                $('.haveCovid:checked').removeAttr('data-test');
+                                //  ამ კოდის საშუალებით დინამიურად შექმნილი ინფუთისგან ამოვიღებთ ველიუს(კერძოდ, სტატიკურ ინფუთს გავატანთ ატრიბუტად)
+                                $('.haveCovid:checked').attr('data-test' , 'no');
+                                let UserHasTest2 = $('.haveCovid:checked').attr('data-test');
+
 
                                      //  შემდეგ გვერდზე გადასასვლელი ვალიდაციის კოდი
                                     $(document).on('change' , '.forValidation' , function(){
@@ -189,23 +201,29 @@ $(function(){
                             <h2>აირჩიე რა ეტაპზე ხარ*</h2>
     
                             <div class="question-child">
-                                <input type="radio" id="yes" name="m" value="first-Doze" class="stage">
+                                <input type="radio" id="first-Doze" name="m" value="first-Doze" class="stage">
                                 <label for="first-Doze">პირველი დოზა და დარეგისტრირებული ვარ მეორეზე</label>
                              </div>
                           
                              <div class="question-child">
-                                 <input type="radio" id="no" name="m" value="full-vacinated" class="stage">
+                                 <input type="radio" id="full-vacinated" name="m" value="full-vacinated" class="stage">
                                  <label for="full-vacinated">სრულად აცრილი ვარ</label>
                              </div>
 
                              <div class="question-child">
-                                 <input type="radio" id="no" name="m" value="onlyFirst" class="stage">
+                                 <input type="radio" id="onlyFirst" name="m" value="onlyFirst" class="stage">
                                  <label for="onlyFirst">პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე</label>
                              </div>
 
                           </div>
                           
                         `);
+                         //  ამ კოდის საშუალებით დინამიურად შექმნილი ინფუთისგან ამოვიღებთ ველიუს(კერძოდ, სტატიკურ ინფუთს გავატანთ ატრიბუტად)
+
+                        $('.haveVaccine:checked').attr('data-stage' , 'yes');
+                        let UserHasTest = $('.haveVaccine:checked').attr('data-vaccine');
+
+
 
                         $(document).on('change' , '.stage' , function(){
 
@@ -243,6 +261,12 @@ $(function(){
 
                             }
                         })
+
+                        //  ამ კოდის საშუალებით დინამიურად შექმნილი ინფუთისგან ამოვიღებთ ველიუს(კერძოდ, სტატიკურ ინფუთს გავატანთ ატრიბუტად)
+
+                        $('.haveVaccine:checked').attr('data-stage' , `${$('.stage:checked').attr('id')}`);
+                        let stage = $('.haveVaccine:checked').attr('data-stage');
+
 
                     // თუ ვაქცინა გაკეთებული არ აქვს  
                     }else{
@@ -379,6 +403,53 @@ $(function(){
             x--;   
         }
     })
+
+    
+    let user = {
+        name: $('.first-input').val(),
+    };
+
+
+
+    // შეყვანილი ინფორმაციის შენახვა 
+
+    $(document).on('click' , '.end' , function(e){
+
+        let userName = $('#first-input').val();
+        let userLastName = $('#second-input').val();
+        let UserEmail = $('#third-input').val();
+
+        let hadCovid = $('.haveCovid').val();
+        let hadTest = $('.haveCovid:checked').attr('data-test');
+
+        let vaccine = $('.haveVaccine').val();
+        let stage = $('.haveVaccine:checked').attr('data-stage');
+        // ვქმნით მასივს ობიექტებისთის
+        let usersArr = [];
+
+        let user = {
+            Name: `${userName}` ,
+            LastName : `${userLastName}` ,
+            Email : `${UserEmail}` ,
+            HadCovid : `${hadCovid}` , 
+            HadTest : `${hadTest}` ,
+            
+            IsVaccined : `${vaccine}` , 
+            InWhichStage : `${stage}`
+        };
+
+
+        console.log(user)
+
+    })
+
+
+
+
+
+
+
+
 })
 
  // enter ღილაკის დაჭერით რომ არ გადავიდეს ინფუთების შეუვსებლად შემდეგ გვერდზე
@@ -407,3 +478,4 @@ $('.inputs').keydown(function(e) {
     }
   });
 }
+
