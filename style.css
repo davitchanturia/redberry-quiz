@@ -95,11 +95,11 @@ body {
 .myquiz .myform .final-page .textOverflow-div .thanks h1 {
   color: #fff;
   font-size: 60px;
-  letter-spacing: 12px;
+  letter-spacing: 13px;
 }
 .myquiz .myform .final-page .textOverflow-div .thanks .icons {
   position: absolute;
-  font-size: 34px;
+  font-size: 28px;
   color: #fff;
   opacity: 0;
   z-index: -9999 !important;

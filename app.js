@@ -4,25 +4,16 @@ $(function(){
     let input2 = $('#second-input');
     let input3 = $('#third-input');
 
-// ამ კოდის საშალებით იუზერი ვერ შეიყვანს რიცხვებს სახელის და გვარის ინფუთებში
-$('.inputs').keydown(function(e) {
-    if (e.shiftKey || e.ctrlKey || e.altKey) {
-      e.preventDefault();
-    } else {
-      var key = e.keyCode;
-      if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
-        e.preventDefault();
-      }
-    }
-  });
+    // ამ კოდის საშალებით იუზერი ვერ შეიყვანს რიცხვებს სახელის და გვარის ინფუთებში
+    onlyAlphabet();
 
     // x ცვლადს ვქმნით რომ ვაკონტროლოთ რომელ გვერდზე ვართ
     let x = 0; 
-
+ 
     let pageNum = $('.pagenum').attr('id')
 
-    // გვერდებზე გადასვლა + ვალიდაცია
-    $('.next').on('click' , function(e){
+     // გვერდებზე გადასვლა + ვალიდაცია
+     $('.next').on('click' , function(e){
         e.preventDefault()
         
         if(x <= 5){
@@ -51,7 +42,7 @@ $('.inputs').keydown(function(e) {
                 })
 
                 // enter ღილაკის დაჭერით რომ არ გადავიდეს ინფუთების შეუვსებლად შემდეგ გვერდზე
-                disableEnter();
+                // disableEnter();
             }
 
             if( x == 2){
@@ -366,7 +357,6 @@ $('.inputs').keydown(function(e) {
                            $('.end').prop('disabled', true);
                       }
                   })
-
              }
 
             //  მადლობის მესიჯის გამოსატანი კოდი
@@ -381,7 +371,6 @@ $('.inputs').keydown(function(e) {
                     $('.down').addClass('down-show');
                 }, 1200);
             }
-
         } 
     })
     $('.back').click(function(){
@@ -402,4 +391,19 @@ function disableEnter(){
         }
       });
 
+}
+
+ // ამ კოდის საშალებით იუზერი ვერ შეიყვანს რიცხვებს სახელის და გვარის ინფუთებში
+function onlyAlphabet(){
+
+$('.inputs').keydown(function(e) {
+    if (e.shiftKey || e.ctrlKey || e.altKey) {
+      e.preventDefault();
+    } else {
+      var key = e.keyCode;
+      if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+        e.preventDefault();
+      }
+    }
+  });
 }
