@@ -25,7 +25,7 @@ $('.inputs').keydown(function(e) {
     $('.next').on('click' , function(e){
         e.preventDefault()
         
-        if(x < 4){
+        if(x <= 5){
             $('.active-page').removeClass('active-page').next().addClass('active-page');
             x++;
 
@@ -359,7 +359,39 @@ $('.inputs').keydown(function(e) {
                         })
                     }
                 })
-            }   
+            }  
+            
+            if( x == 4){
+               
+                
+             }
+
+
+            //  მადლობის მესიჯის გამოსატანი კოდი
+            if($('.final-page').hasClass('active-page')){
+                setTimeout(function(){ 
+                    $('.thanks').addClass('scrollDown');
+                }, 600);
+                setTimeout(function(){ 
+                    $('.up').addClass('up-show');
+                }, 1200);
+                setTimeout(function(){ 
+                    $('.down').addClass('down-show');
+                }, 1200);
+            }
+
+            
+
+                // enter ღილაკის დაჭერით რომ არ გადავიდეს ინფუთების შეუვსებლად შემდეგ გვერდზე
+                $(document).on('keydown keyup', 'input ', function(e) {
+                    if(e.which == 13) {
+                      e.preventDefault();
+                      return false;
+                    }
+                  });
+
+               
+            
         } 
     })
     $('.back').click(function(){

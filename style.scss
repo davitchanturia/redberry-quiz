@@ -79,6 +79,62 @@ body{
             }
         }
 
+        .final-page{
+            background-color: #232323;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            .textOverflow-div{
+                overflow: hidden;
+                width: fit-content;
+                height: 250px;
+                display: flex;
+                align-items: center;
+                // background-color: #1ffe1f;
+                z-index: -3!important;
+                .thanks{
+                    width: fit-content;
+                    height: 100px;
+                    background-color: #232323;
+                    transform: translateY(-250px);
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    z-index: -1!important;
+                    h1{
+                        color: #fff;
+                        font-size: 60px;
+                        letter-spacing: 12px;
+                        
+                     }
+                     .icons{
+                         position: absolute;
+                         font-size: 34px;
+                         color: #fff;
+                         opacity: 0;
+                         z-index: -9999!important;
+                         transition: all .6s;
+                     }
+                     .up{
+                         left: 100px;
+                     }
+                     .down{
+                         right: 100px;
+                     }
+                }
+                
+
+                
+                
+            }
+            
+        }
         .same{
             width: 100%;
             height: 100%;
@@ -235,16 +291,16 @@ body{
         color: #232323;
     }
 }
-.form1{
-    // display: flex;
-}
 
 
 
 
 
-// მისანიჭებელი კლასი აქტიური ფეიჯისთვის
 
+// მისანიჭებელი კლასeები 
+
+
+// აქტიური ფეიჯისთვის
 .active-page{
     opacity: 1!important;
     transition: all .7s;
@@ -252,3 +308,22 @@ body{
     z-index: 99999;
 }
 
+// მადლობის მესიჯზე h1-სთვის
+.scrollDown{
+    transform: translateY(0px)!important;
+    transition: all .8s;
+}
+
+// მადლობის მესიჯზე იკონკებისთვის
+
+.up-show{
+    opacity: 1!important;
+    transform: translate(-70px , -70px);
+     z-index: 9999!important;
+}
+
+.down-show{
+    opacity: 1!important;
+    transform: translate(70px , 70px);
+     z-index: 9999!important;
+}
