@@ -97,11 +97,11 @@ $(function(){
                                      <h2>თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების რაოდენობა*</h2>
                                  
                                      <div class="question-child">
-                                         <input type="date" id="yes" name="d"  class="haveAnti num-input forValidation">
+                                         <input type="date" id="yes" name="d"  class="haveAnti num-input forValidation date">
                                       </div>
                                    
                                       <div class="question-child">
-                                          <input type="number" id="no" value="" name="d" class="haveAnti num-input forValidation" style="margin-top:10px;">   
+                                          <input type="number" id="no" value="" name="d" class="haveAnti num-input forValidation Num" style="margin-top:10px;">   
                                       </div>
                                    
                                    </div>
@@ -109,16 +109,20 @@ $(function(){
                                  `);
 
                                 //  ამ კოდის საშუალებით დინამიურად შექმნილი ინფუთისგან ამოვიღებთ ველიუს(კერძოდ, სტატიკურ ინფუთს გავატანთ ატრიბუტად)
-                               
-                               // სხვა პასუხის შემთხვევაში ამ ატრიბუტის წაშლა ახალ არჩეულს როარ გადაეწეროს    
-                                $('.haveCovid:checked').removeAttr('data-test');
                                 
                                 // data-test მინიჭება
                                 $('.haveCovid:checked').attr('data-test' , 'yes');
                                  let UserHasTest = $('.haveCovid:checked').attr('data-test');
-
                                 
+                                  //  ივენთით ვგებულობთ იუზერის მიერ შეყვანილ ანტისხეულების რაოდენობას და ვინახავთ
+                                  $(document).on('change' , '.Num' , function(){
+                                    var input = $(this).val();
+
+                                    $('.haveCovid:checked').attr('data-num' , input);
+                                    let UserHasTest = $('.haveCovid:checked').attr('data-num');
+                                }) 
                             }
+
                              // თუ ტესტი გაკეთებული არ აქვს
                             if(mosanishniTest == "no"){
 
@@ -136,20 +140,17 @@ $(function(){
                                      <h2>მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*</h2>
                                 
                                      <div class="question-child">
-                                         <input type="date" id="yes" name="d" value="05/07/1999" class="period num-input forValidation" placeholder="რიცხვი">
+                                         <input type="date" id="yes" name="d" class="period num-input forValidation date" placeholder="რიცხვი">
                                       </div>
 
                                    </div>
                                     
                                  `)
                                 }
-                                
-                                $('.haveCovid:checked').removeAttr('data-test');
 
                                 //  ამ კოდის საშუალებით დინამიურად შექმნილი ინფუთისგან ამოვიღებთ ველიუს(კერძოდ, სტატიკურ ინფუთს გავატანთ ატრიბუტად)
                                 $('.haveCovid:checked').attr('data-test' , 'no');
                                 let UserHasTest2 = $('.haveCovid:checked').attr('data-test');
-
 
                                      //  შემდეგ გვერდზე გადასასვლელი ვალიდაციის კოდი
                                     $(document).on('change' , '.forValidation' , function(){
@@ -160,8 +161,14 @@ $(function(){
                                         if( dateVal != 0 && numVal != 0){
                                           $('.second-valid').removeAttr('disabled');
                                        }
-    
                                  })
+
+                                //  ივენთით ვგებულობთ იუზერის მიერ შეყვანილ თარიღს და ვინახავთ
+                                $(document).on('change' , '.date' , function(){
+                                   var input = $(this).val();
+                                   $('.haveCovid:checked').attr('data-date' , input);
+                                   let UserHasTest = $('.haveCovid:checked').attr('data-date');
+                               }) 
 
                               })
 
@@ -220,12 +227,6 @@ $(function(){
                           </div>
                           
                         `);
-                         //  ამ კოდის საშუალებით დინამიურად შექმნილი ინფუთისგან ამოვიღებთ ველიუს(კერძოდ, სტატიკურ ინფუთს გავატანთ ატრიბუტად)
-
-                        // $('.haveVaccine:checked').attr('data-stage' , 'yes');
-                        // let UserHasTest = $('.haveVaccine:checked').attr('data-vaccine');
-
-
 
                         $(document).on('change' , '.stage' , function(){
 
@@ -270,9 +271,6 @@ $(function(){
                             $('.haveVaccine:checked').attr('data-stage' , a );
                             let stage = $('.haveVaccine:checked').attr('data-stage');
                         })
-
-                        
-
 
                     // თუ ვაქცინა გაკეთებული არ აქვს  
                     }else{
@@ -376,10 +374,7 @@ $(function(){
                           $('.haveVaccine:checked').attr('data-why' , b );
                           let stage = $('.haveVaccine:checked').attr('data-why');
 
-
                         })
-
-                         
                     }
                 })
             }  
@@ -424,12 +419,9 @@ $(function(){
         }
     })
 
-    
     let user = {
         name: $('.first-input').val(),
     };
-
-
 
     // შეყვანილი ინფორმაციის შენახვა 
 
@@ -441,10 +433,12 @@ $(function(){
 
         let hadCovid = $('.haveCovid:checked').val();
         let hadTest = $('.haveCovid:checked').attr('data-test');
+        let date = $('.haveCovid:checked').attr('data-date');
 
         let vaccine = $('.haveVaccine:checked').val();
         let stage = $('.haveVaccine:checked').attr('data-stage');
         let why = $('.haveVaccine:checked').attr('data-why');
+        let num = $('.haveCovid:checked').attr('data-num');
 
         let meetingCount = $('.last-valid:checked').val();
         let office = $('.last-valid2:checked').val();
@@ -461,6 +455,8 @@ $(function(){
 
             კოვიდი : `${hadCovid}` , 
             ტესტი : `${hadTest}` ,
+            თარიღი : `${date}` , 
+            ანტისხეულები : `${num}` , 
             
             ვაქცინაცია : `${vaccine}` , 
             ეტაპი : `${stage}` , 
@@ -475,17 +471,12 @@ $(function(){
         // ობიექტს ვინახავთ მასივში
         usersArr.push(user);
 
+        // მასივი გადაგვყავს JSON ფორმატში
+        let jsonArr = JSON.stringify(usersArr)
 
-        console.log(usersArr)
+        console.log(jsonArr)
 
     })
-
-
-
-
-
-
-
 
 })
 
@@ -515,4 +506,3 @@ $('.inputs').keydown(function(e) {
     }
   });
 }
-
