@@ -45,32 +45,19 @@ $('.inputs').keydown(function(e) {
                     if( valstring[1] == "redberry.ge" && input1.length > 3 && input1.length < 255 && input2.length > 3  && input2.length < 255){
                         $('.first-valid').removeAttr('disabled');
                         $('.error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
-
                     }else {
                         $('.first-valid').prop('disabled', true);
                     }
                 })
 
-
-
                 // enter ღილაკის დაჭერით რომ არ გადავიდეს ინფუთების შეუვსებლად შემდეგ გვერდზე
-                $(document).on('keyup keypress', 'input', function(e) {
-                    if(e.which == 13) {
-                      e.preventDefault();
-                      return false;
-                    }
-                  });
+                disableEnter();
             }
 
             if( x == 2){
 
                 // enter ღილაკის დაჭერით რომ არ გადავიდეს ინფუთების შეუვსებლად შემდეგ გვერდზე
-                $(document).on('keyup keypress', 'input', function(e) {
-                    if(e.which == 13) {
-                      e.preventDefault();
-                      return false;
-                    }
-                  });
+                disableEnter();
 
                 $(document).on('change' , '.haveCovid' , function(){
 
@@ -133,7 +120,6 @@ $('.inputs').keydown(function(e) {
                                    </div>
 
                                  `);
-
                             }
                              // თუ ტესტი გაკეთებული არ აქვს
                             if(mosanishniTest == "no"){
@@ -158,7 +144,6 @@ $('.inputs').keydown(function(e) {
                                    </div>
                                     
                                  `)
-
                                 }
 
                                      //  შემდეგ გვერდზე გადასასვლელი ვალიდაციის კოდი
@@ -190,12 +175,7 @@ $('.inputs').keydown(function(e) {
             if( x == 3){
 
                 // enter ღილაკის დაჭერით რომ არ გადავიდეს ინფუთების შეუვსებლად შემდეგ გვერდზე
-                $(document).on('keyup keypress', 'input', function(e) {
-                    if(e.which == 13) {
-                      e.preventDefault();
-                      return false;
-                    }
-                  });
+                disableEnter();
                 
                 $(document).on('change' , '.haveVaccine' , function(){
 
@@ -271,7 +251,6 @@ $('.inputs').keydown(function(e) {
                                 $('.third-valid').prop('disabled', false);
 
                             }
-
                         })
 
                     // თუ ვაქცინა გაკეთებული არ აქვს  
@@ -373,30 +352,22 @@ $('.inputs').keydown(function(e) {
             if( x == 4){
                 
                 // enter ღილაკის დაჭერით რომ არ გადავიდეს ინფუთების შეუვსებლად შემდეგ გვერდზე
-                $(document).on('keyup keypress', 'input', function(e) {
-                    if(e.which == 13) {
-                      e.preventDefault();
-                      return false;
-                    }
-                  });
-
+                disableEnter();
 
                 //   ბოლო გვერდის ვალიდაციის კოდი
                   $(document).on('change' , '.final-validation' , function(){
 
-                    var mosanishniLastValid1 = $('.last-valid[type=radio]:checked').val();
-                    var mosanishniLastValid2 = $('.last-valid2[type=radio]:checked').val();
-
-                    console.log(mosanishniLastValid1 , mosanishniLastValid2)
-                   if(mosanishniLastValid1 == 'next' && mosanishniLastValid2 == 'next'){
-                       $('.end').prop('disabled', false);
-                   }else{
-                        $('.end').prop('disabled', true);
-                   }
+                      var mosanishniLastValid1 = $('.last-valid[type=radio]:checked').val();
+                      var mosanishniLastValid2 = $('.last-valid2[type=radio]:checked').val();
+   
+                      if(mosanishniLastValid1 == 'next' && mosanishniLastValid2 == 'next'){
+                          $('.end').prop('disabled', false);
+                      }else{
+                           $('.end').prop('disabled', true);
+                      }
                   })
 
              }
-
 
             //  მადლობის მესიჯის გამოსატანი კოდი
             if($('.final-page').hasClass('active-page')){
@@ -419,5 +390,16 @@ $('.inputs').keydown(function(e) {
             x--;   
         }
     })
-
 })
+
+ // enter ღილაკის დაჭერით რომ არ გადავიდეს ინფუთების შეუვსებლად შემდეგ გვერდზე
+function disableEnter(){
+    
+     $(document).on('keyup keypress', 'input', function(e) {
+        if(e.which == 13) {
+          e.preventDefault();
+          return false;
+        }
+      });
+
+}
