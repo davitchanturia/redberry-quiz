@@ -29,7 +29,7 @@ $(function(){
                     let valstring = input3.split('@');
 
                     // ამ კოდით ვამოწმებთ ინფუთში ასოების რაოდენბა თუ არის 3-255 შუალედში და თუ მეილი მთავრდება redberry.ge ზე
-                    if( valstring[1] == "redberry.ge" && input1.length > 3 && input1.length < 255 && input2.length > 3  && input2.length < 255){
+                    if( valstring[1] == "redberry.ge" && input1.length > 2 && input1.length < 255 && input2.length > 2  && input2.length < 255){
                         $('.first-valid').removeAttr('disabled');
                         $('.error').html('<i class="bi bi-check-lg" style="color:green!important;" ></i>');
                     }else {
