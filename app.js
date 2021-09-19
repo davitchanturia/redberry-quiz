@@ -38,7 +38,7 @@ $(function(){
                 })
 
                 // enter ღილაკის დაჭერით რომ არ გადავიდეს ინფუთების შეუვსებლად შემდეგ გვერდზე
-                // disableEnter();
+                disableEnter();
             }
 
             if( x == 2){
@@ -110,7 +110,7 @@ $(function(){
 
                                 //  ამ კოდის საშუალებით დინამიურად შექმნილი ინფუთისგან ამოვიღებთ ველიუს(კერძოდ, სტატიკურ ინფუთს გავატანთ ატრიბუტად)
                                
-                               // სხვა პასუხის შემთხვევაში ამ ატრიბუტი წაშლა ახალ არჩეულს როარ გადაეწეროს    
+                               // სხვა პასუხის შემთხვევაში ამ ატრიბუტის წაშლა ახალ არჩეულს როარ გადაეწეროს    
                                 $('.haveCovid:checked').removeAttr('data-test');
                                 
                                 // data-test მინიჭება
@@ -143,7 +143,9 @@ $(function(){
                                     
                                  `)
                                 }
+                                
                                 $('.haveCovid:checked').removeAttr('data-test');
+
                                 //  ამ კოდის საშუალებით დინამიურად შექმნილი ინფუთისგან ამოვიღებთ ველიუს(კერძოდ, სტატიკურ ინფუთს გავატანთ ატრიბუტად)
                                 $('.haveCovid:checked').attr('data-test' , 'no');
                                 let UserHasTest2 = $('.haveCovid:checked').attr('data-test');
@@ -220,8 +222,8 @@ $(function(){
                         `);
                          //  ამ კოდის საშუალებით დინამიურად შექმნილი ინფუთისგან ამოვიღებთ ველიუს(კერძოდ, სტატიკურ ინფუთს გავატანთ ატრიბუტად)
 
-                        $('.haveVaccine:checked').attr('data-stage' , 'yes');
-                        let UserHasTest = $('.haveVaccine:checked').attr('data-vaccine');
+                        // $('.haveVaccine:checked').attr('data-stage' , 'yes');
+                        // let UserHasTest = $('.haveVaccine:checked').attr('data-vaccine');
 
 
 
@@ -260,12 +262,16 @@ $(function(){
                                 $('.third-valid').prop('disabled', false);
 
                             }
+
+                            //  ამ კოდის საშუალებით დინამიურად შექმნილი ინფუთისგან ამოვიღებთ ველიუს(კერძოდ, სტატიკურ ინფუთს გავატანთ ატრიბუტად)
+
+                            let a = $('.stage:checked').attr('id')
+    
+                            $('.haveVaccine:checked').attr('data-stage' , a );
+                            let stage = $('.haveVaccine:checked').attr('data-stage');
                         })
 
-                        //  ამ კოდის საშუალებით დინამიურად შექმნილი ინფუთისგან ამოვიღებთ ველიუს(კერძოდ, სტატიკურ ინფუთს გავატანთ ატრიბუტად)
-
-                        $('.haveVaccine:checked').attr('data-stage' , `${$('.stage:checked').attr('id')}`);
-                        let stage = $('.haveVaccine:checked').attr('data-stage');
+                        
 
 
                     // თუ ვაქცინა გაკეთებული არ აქვს  
@@ -286,7 +292,7 @@ $(function(){
                             <h2>რას ელოდები?*</h2>
     
                             <div class="question-child">
-                                <input type="radio" id="yes" name="n" value="waiting-second" class="why">
+                                <input type="radio" id="waiting-second" name="n" value="waiting-second" class="why">
                                 <label for="waiting-second">დარეგისტრირებული ვარ და ველოდები რიცხვს</label>
                              </div>
                           
@@ -296,7 +302,7 @@ $(function(){
                              </div>
 
                              <div class="question-child">
-                                 <input type="radio" id="no" name="n" value="alreadyHad" class="why">
+                                 <input type="radio" id="alreadyHad" name="n" value="alreadyHad" class="why">
                                 <label for="alreadyHad">გადატანილი მაქვს და ვგეგმავ აცრას</label>
                              </div>
 
@@ -308,7 +314,7 @@ $(function(){
 
                             var mosanishniWhy = $('.why[type=radio]:checked').val();
 
-                            // თუ პირველი დოზა გაკეთებული აქვს და მეორეზე დარეგისტრირებულია
+                            // თუ არ გეგმავს
                             if(mosanishniWhy == "no"){
                                 
                                  //  შემდეგ გვერდზე გადასასვლელი ვალიდაციის კოდი
@@ -359,7 +365,21 @@ $(function(){
                                 // ვშლით სხვა პასუხის შესაძლო გაგრძელებებს უკან მიბრუნებისას ბევრჯერ რო არ შექმნას დივი
                                 $('.answerTwo2').empty();
                             }
+
+                            // სხვა პასუხის შემთხვევაში ამ ატრიბუტის წაშლა ახალ არჩეულს როარ გადაეწეროს    
+                            $('.haveVaccine:checked').removeAttr('data-why');
+
+                           //  ამ კოდის საშუალებით დინამიურად შექმნილი ინფუთისგან ამოვიღებთ ველიუს(კერძოდ, სტატიკურ ინფუთს გავატანთ ატრიბუტად)
+
+                          let b = $('.why:checked').attr('id')
+    
+                          $('.haveVaccine:checked').attr('data-why' , b );
+                          let stage = $('.haveVaccine:checked').attr('data-why');
+
+
                         })
+
+                         
                     }
                 })
             }  
@@ -419,27 +439,34 @@ $(function(){
         let userLastName = $('#second-input').val();
         let UserEmail = $('#third-input').val();
 
-        let hadCovid = $('.haveCovid').val();
+        let hadCovid = $('.haveCovid:checked').val();
         let hadTest = $('.haveCovid:checked').attr('data-test');
 
-        let vaccine = $('.haveVaccine').val();
+        let vaccine = $('.haveVaccine:checked').val();
         let stage = $('.haveVaccine:checked').attr('data-stage');
+        let why = $('.haveVaccine:checked').attr('data-why');
+
         // ვქმნით მასივს ობიექტებისთის
         let usersArr = [];
 
         let user = {
-            Name: `${userName}` ,
-            LastName : `${userLastName}` ,
-            Email : `${UserEmail}` ,
-            HadCovid : `${hadCovid}` , 
-            HadTest : `${hadTest}` ,
+            სახელი: `${userName}` ,
+            გვარი : `${userLastName}` ,
+            იმეილი : `${UserEmail}` ,
+
+            კოვიდი : `${hadCovid}` , 
+            ტესტი : `${hadTest}` ,
             
-            IsVaccined : `${vaccine}` , 
-            InWhichStage : `${stage}`
+            ვაქცინაცია : `${vaccine}` , 
+            ეტაპი : `${stage}` , 
+            აიცრება : `${why}` , 
         };
 
+        // ობიექტს ვინახავთ მასივში
+        usersArr.push(user);
 
-        console.log(user)
+
+        console.log(usersArr)
 
     })
 
