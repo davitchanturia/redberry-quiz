@@ -392,10 +392,10 @@ $(function(){
                 //   ბოლო გვერდის ვალიდაციის კოდი
                   $(document).on('change' , '.final-validation' , function(){
 
-                      var mosanishniLastValid1 = $('.last-valid[type=radio]:checked').val();
-                      var mosanishniLastValid2 = $('.last-valid2[type=radio]:checked').val();
+                      var mosanishniLastValid1 = $('.last-valid[type=radio]:checked').attr('name');
+                      var mosanishniLastValid2 = $('.last-valid2[type=radio]:checked').attr('name');
    
-                      if(mosanishniLastValid1 == 'next' && mosanishniLastValid2 == 'next'){
+                      if(mosanishniLastValid1 == 'g' && mosanishniLastValid2 == 'h'){
                           $('.end').prop('disabled', false);
                       }else{
                            $('.end').prop('disabled', true);
@@ -446,7 +446,12 @@ $(function(){
         let stage = $('.haveVaccine:checked').attr('data-stage');
         let why = $('.haveVaccine:checked').attr('data-why');
 
-        // ვქმნით მასივს ობიექტებისთის
+        let meetingCount = $('.last-valid:checked').val();
+        let office = $('.last-valid2:checked').val();
+        let meet = $('#meet').val();
+        let reco = $('#yourReco').val();
+
+        // ვქმნით მასივს ობიექტებისთის 
         let usersArr = [];
 
         let user = {
@@ -460,6 +465,11 @@ $(function(){
             ვაქცინაცია : `${vaccine}` , 
             ეტაპი : `${stage}` , 
             აიცრება : `${why}` , 
+
+            შეხვედრებისრაოდენობა : `${meetingCount}` ,
+            ოფისშიმუშაობა : `${office}` ,
+            შეხედულება : `${meet}` ,
+            ახალიიდეები : `${reco}`
         };
 
         // ობიექტს ვინახავთ მასივში
